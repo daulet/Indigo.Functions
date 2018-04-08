@@ -11,7 +11,17 @@ namespace Indigo.Functions.Redis
             var rule = context.AddBindingRule<RedisAttribute>();
 
             rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
+                .BindToInput(BuildConnectionFromAttribute);
+
+            rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
                 .BindToInput(BuildConnectionFromAttributeAsync);
+        }
+
+        private IConnectionMultiplexer BuildConnectionFromAttribute(RedisAttribute attribute)
+        {
+            var connectionMultiplexer = ConnectionMultiplexer.Connect(attribute.Configuration);
+
+            return connectionMultiplexer;
         }
 
         private async Task<IConnectionMultiplexer> BuildConnectionFromAttributeAsync(RedisAttribute attribute)
