@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions", "src\Ind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Redis", "src\Indigo.Functions.Redis\Indigo.Functions.Redis.csproj", "{2D378008-39C7-42B1-8E1F-D8B9CE988779}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisFunctionSample", "sample\RedisFunctionSample\RedisFunctionSample.csproj", "{F31045A2-CF11-4D77-9D68-0DDF425FBB1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{2D378008-39C7-42B1-8E1F-D8B9CE988779}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D378008-39C7-42B1-8E1F-D8B9CE988779}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D378008-39C7-42B1-8E1F-D8B9CE988779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F31045A2-CF11-4D77-9D68-0DDF425FBB1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F31045A2-CF11-4D77-9D68-0DDF425FBB1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F31045A2-CF11-4D77-9D68-0DDF425FBB1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F31045A2-CF11-4D77-9D68-0DDF425FBB1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F31045A2-CF11-4D77-9D68-0DDF425FBB1F} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE8F85C4-2430-42BE-9233-1BA1D0C8B01A}
