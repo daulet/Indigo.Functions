@@ -1,5 +1,6 @@
 ﻿using Microsoft.Azure.WebJobs.Host.Config;
 using StackExchange.Redis;
+using System;
 using System.Threading.Tasks;
 
 namespace Indigo.Functions.Redis
@@ -10,11 +11,19 @@ namespace Indigo.Functions.Redis
         {
             var rule = context.AddBindingRule<RedisAttribute>();
 
+            rule.WhenIsNull(nameof(RedisAttribute.Configuration))
+                .BindToInput(ThrowValidationError);
+
             rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
                 .BindToInput(BuildConnectionFromAttribute);
 
             rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
                 .BindToInput(BuildConnectionFromAttributeAsync);
+        }
+
+        private IConnectionMultiplexer ThrowValidationError(RedisAttribute attribute)
+        {
+            throw new ArgumentException("Parameter cannot be null", nameof(RedisAttribute.Configuration));
         }
 
         private IConnectionMultiplexer BuildConnectionFromAttribute(RedisAttribute attribute)
