@@ -21,21 +21,23 @@ namespace Indigo.Functions.Redis
                 .BindToInput(BuildConnectionFromAttributeAsync);
         }
 
-        private IConnectionMultiplexer ThrowValidationError(RedisAttribute attribute)
+        private static IConnectionMultiplexer ThrowValidationError(RedisAttribute attribute)
         {
-            throw new ArgumentException("Parameter cannot be null", nameof(RedisAttribute.Configuration));
+            throw new ArgumentException("RedisAttribute.Configuration parameter cannot be null", nameof(attribute));
         }
 
-        private IConnectionMultiplexer BuildConnectionFromAttribute(RedisAttribute attribute)
+        private static IConnectionMultiplexer BuildConnectionFromAttribute(RedisAttribute attribute)
         {
             var connectionMultiplexer = ConnectionMultiplexer.Connect(attribute.Configuration);
 
             return connectionMultiplexer;
         }
 
-        private async Task<IConnectionMultiplexer> BuildConnectionFromAttributeAsync(RedisAttribute attribute)
+        private static async Task<IConnectionMultiplexer> BuildConnectionFromAttributeAsync(RedisAttribute attribute)
         {
-            var connectionMultiplexer = await ConnectionMultiplexer.ConnectAsync(attribute.Configuration);
+            var connectionMultiplexer = await ConnectionMultiplexer
+                .ConnectAsync(attribute.Configuration)
+                .ConfigureAwait(false);
 
             return connectionMultiplexer;
         }
