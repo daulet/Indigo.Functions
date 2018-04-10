@@ -12,7 +12,7 @@ namespace RedisFunctionSample
     {
         [FunctionName("Test")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "test")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "test")] HttpRequest req,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");

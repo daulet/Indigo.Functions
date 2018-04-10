@@ -48,7 +48,7 @@ namespace RedisFunctionSample
             }
             if (string.IsNullOrEmpty(value))
             {
-                return new OkObjectResult("No value specified");
+                return new BadRequestObjectResult("No value specified");
             }
 
             var database = connectionMultiplexer.GetDatabase();
