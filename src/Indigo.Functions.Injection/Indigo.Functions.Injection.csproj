@@ -2,10 +2,33 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>Dependency Injection bindings for Azure Functions</Title>
+    <Description>Azure Functions bindings to inject your dependencies</Description>
+    <Version>0.1-prerelease</Version>
+    <PackageReleaseNotes>
+      Version 0.1
+
+      * Use [Inject] binding for all injectable dependencies.
+      * Users implement IDependencyConfig to feed Unity container.
+    </PackageReleaseNotes>
+    <Authors>Daulet Zhanguzin</Authors>
+    <Copyright>Copyright (c) Daulet Zhanguzin</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/BSD-3-Clause</PackageLicenseUrl>
+    <PackageTags>azure functions azurefunc binding di dependency injection</PackageTags>
+    <RepositoryUrl>https://github.com/daulet/Indigo.Functions</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/daulet/Indigo.Functions</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.0-beta5" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.0">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Unity.Container" Version="5.8.5" />
   </ItemGroup>
 
