@@ -11,9 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{2D4AAD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisFunctionSample", "sample\RedisFunctionSample\RedisFunctionSample.csproj", "{F31045A2-CF11-4D77-9D68-0DDF425FBB1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.KeyVault", "src\Indigo.Functions.KeyVault\Indigo.Functions.KeyVault.csproj", "{9490796E-8A37-4058-B94E-598AB7342440}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.KeyVault", "src\Indigo.Functions.KeyVault\Indigo.Functions.KeyVault.csproj", "{9490796E-8A37-4058-B94E-598AB7342440}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyVaultFunctionSample", "sample\KeyVaultFunctionSample\KeyVaultFunctionSample.csproj", "{BD507E66-7F99-453A-A54E-EE75E3F26009}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyVaultFunctionSample", "sample\KeyVaultFunctionSample\KeyVaultFunctionSample.csproj", "{BD507E66-7F99-453A-A54E-EE75E3F26009}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Injection", "src\Indigo.Functions.Injection\Indigo.Functions.Injection.csproj", "{52615839-8F33-46DE-9819-57DC2BDA2180}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjectionSample", "sample\DependencyInjectionSample\DependencyInjectionSample.csproj", "{25706BBC-65B5-447C-836D-75EC75B16599}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,14 @@ Global
 		{BD507E66-7F99-453A-A54E-EE75E3F26009}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD507E66-7F99-453A-A54E-EE75E3F26009}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD507E66-7F99-453A-A54E-EE75E3F26009}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52615839-8F33-46DE-9819-57DC2BDA2180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52615839-8F33-46DE-9819-57DC2BDA2180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52615839-8F33-46DE-9819-57DC2BDA2180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52615839-8F33-46DE-9819-57DC2BDA2180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25706BBC-65B5-447C-836D-75EC75B16599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25706BBC-65B5-447C-836D-75EC75B16599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25706BBC-65B5-447C-836D-75EC75B16599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25706BBC-65B5-447C-836D-75EC75B16599}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +60,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F31045A2-CF11-4D77-9D68-0DDF425FBB1F} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
 		{BD507E66-7F99-453A-A54E-EE75E3F26009} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
+		{25706BBC-65B5-447C-836D-75EC75B16599} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE8F85C4-2430-42BE-9233-1BA1D0C8B01A}
