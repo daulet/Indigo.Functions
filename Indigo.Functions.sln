@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions", "src\Indigo.Functions\Indigo.Functions.csproj", "{0AAF5FDD-5EC5-455F-B79E-3DF25563E512}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Redis", "src\Indigo.Functions.Redis\Indigo.Functions.Redis.csproj", "{2D378008-39C7-42B1-8E1F-D8B9CE988779}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}"
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0AAF5FDD-5EC5-455F-B79E-3DF25563E512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AAF5FDD-5EC5-455F-B79E-3DF25563E512}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AAF5FDD-5EC5-455F-B79E-3DF25563E512}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AAF5FDD-5EC5-455F-B79E-3DF25563E512}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2D378008-39C7-42B1-8E1F-D8B9CE988779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2D378008-39C7-42B1-8E1F-D8B9CE988779}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D378008-39C7-42B1-8E1F-D8B9CE988779}.Release|Any CPU.ActiveCfg = Release|Any CPU
