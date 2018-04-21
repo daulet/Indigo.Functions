@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.KeyVault;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -14,7 +12,7 @@ namespace KeyVaultFunctionSample
     public static class KeyVaultFunction
     {
         [FunctionName("KeyVault_SetSecret")]
-        public static async Task<IActionResult> Run(
+        public static async Task<IActionResult> SetSecretAsync(
             [HttpTrigger("POST", Route = "secret/{secretName}")] HttpRequest req,
             string secretName,
             [Secret] KeyVaultClient vaultClient,
