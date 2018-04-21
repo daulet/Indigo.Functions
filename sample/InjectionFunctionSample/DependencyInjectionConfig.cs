@@ -1,7 +1,7 @@
 ﻿using Indigo.Functions.Injection;
 using Unity;
 
-namespace DependencyInjectionSample
+namespace InjectionFunctionSample
 {
     public class DependencyInjectionConfig : IDependencyConfig
     {

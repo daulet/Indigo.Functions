@@ -15,13 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyVaultFunctionSample", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection", "src\Indigo.Functions.Injection\Indigo.Functions.Injection.csproj", "{52615839-8F33-46DE-9819-57DC2BDA2180}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjectionSample", "sample\DependencyInjectionSample\DependencyInjectionSample.csproj", "{25706BBC-65B5-447C-836D-75EC75B16599}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection.IntegrationTests.InjectionTests", "test\Indigo.Functions.Injection.IntegrationTests.InjectionTests\Indigo.Functions.Injection.IntegrationTests.InjectionTests.csproj", "{85B3A8B6-1716-4972-AE83-7F2FD334B9BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Injection.IntegrationTests.ConfiguredFunction", "test\Indigo.Functions.Injection.IntegrationTests.ConfiguredFunction\Indigo.Functions.Injection.IntegrationTests.ConfiguredFunction.csproj", "{DEC56640-1739-4BC4-B036-C0B1F390E948}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection.IntegrationTests.ConfiguredFunction", "test\Indigo.Functions.Injection.IntegrationTests.ConfiguredFunction\Indigo.Functions.Injection.IntegrationTests.ConfiguredFunction.csproj", "{DEC56640-1739-4BC4-B036-C0B1F390E948}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Injection.IntegrationTests.NonPublicFunction", "test\Indigo.Functions.Injection.IntegrationTests.NonPublicFunction\Indigo.Functions.Injection.IntegrationTests.NonPublicFunction.csproj", "{37D3BF6C-FDD7-48F1-868B-3105E01728E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection.IntegrationTests.NonPublicFunction", "test\Indigo.Functions.Injection.IntegrationTests.NonPublicFunction\Indigo.Functions.Injection.IntegrationTests.NonPublicFunction.csproj", "{37D3BF6C-FDD7-48F1-868B-3105E01728E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InjectionFunctionSample", "sample\InjectionFunctionSample\InjectionFunctionSample.csproj", "{5615968C-9078-4BA2-933A-1D736157D880}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +49,6 @@ Global
 		{52615839-8F33-46DE-9819-57DC2BDA2180}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52615839-8F33-46DE-9819-57DC2BDA2180}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52615839-8F33-46DE-9819-57DC2BDA2180}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25706BBC-65B5-447C-836D-75EC75B16599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25706BBC-65B5-447C-836D-75EC75B16599}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25706BBC-65B5-447C-836D-75EC75B16599}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25706BBC-65B5-447C-836D-75EC75B16599}.Release|Any CPU.Build.0 = Release|Any CPU
 		{85B3A8B6-1716-4972-AE83-7F2FD334B9BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{85B3A8B6-1716-4972-AE83-7F2FD334B9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85B3A8B6-1716-4972-AE83-7F2FD334B9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,6 +61,10 @@ Global
 		{37D3BF6C-FDD7-48F1-868B-3105E01728E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37D3BF6C-FDD7-48F1-868B-3105E01728E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37D3BF6C-FDD7-48F1-868B-3105E01728E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5615968C-9078-4BA2-933A-1D736157D880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5615968C-9078-4BA2-933A-1D736157D880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5615968C-9078-4BA2-933A-1D736157D880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5615968C-9078-4BA2-933A-1D736157D880}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,7 +72,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F31045A2-CF11-4D77-9D68-0DDF425FBB1F} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
 		{BD507E66-7F99-453A-A54E-EE75E3F26009} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
-		{25706BBC-65B5-447C-836D-75EC75B16599} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
+		{5615968C-9078-4BA2-933A-1D736157D880} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE8F85C4-2430-42BE-9233-1BA1D0C8B01A}

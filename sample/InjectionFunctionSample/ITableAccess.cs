@@ -1,4 +1,4 @@
-﻿namespace DependencyInjectionSample
+﻿namespace InjectionFunctionSample
 {
     public interface ITableAccess
     {

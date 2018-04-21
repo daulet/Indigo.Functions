@@ -5,7 +5,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 
-namespace DependencyInjectionSample
+namespace InjectionFunctionSample
 {
     public static class InjectedFunction
     {
