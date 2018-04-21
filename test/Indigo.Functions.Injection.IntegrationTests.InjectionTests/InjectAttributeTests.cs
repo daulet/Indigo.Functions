@@ -7,12 +7,13 @@ namespace Indigo.Functions.Injection.IntegrationTests.InjectionTests
 {
     public class InjectAttributeTests
     {
+        private static readonly HttpClient httpClient = new HttpClient();
+
         [Fact]
         public async Task Inject_ConfigExists_InstanceInjected()
         {
-            var client = new HttpClient();
             var response =
-                await client.GetAsync(@"http://localhost:7072/test/CorrectFunction");
+                await httpClient.GetAsync(@"http://localhost:7072/test/CorrectFunction");
 
             Assert.True(response.IsSuccessStatusCode, "Failed to send HTTP GET");
         }
@@ -20,9 +21,8 @@ namespace Indigo.Functions.Injection.IntegrationTests.InjectionTests
         [Fact]
         public async Task Inject_NonPublicConfig_FunctionFailsToResolveDependency()
         {
-            var client = new HttpClient();
             var response =
-                await client.GetAsync(@"http://localhost:7073/test/NonPublicConfigFunction");
+                await httpClient.GetAsync(@"http://localhost:7073/test/NonPublicConfigFunction");
 
             Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
         }
