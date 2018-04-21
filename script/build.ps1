@@ -25,3 +25,11 @@ dotnet msbuild .\Indigo.Functions.sln '/consoleLoggerParameters:Summary;Verbosit
 if ($LastExitCode -ne 0) {
     return $LastExitCode
 }
+
+Write-Host "Running test" -ForegroundColor Blue
+
+. $PsScriptRoot\test.ps1
+
+if ($LastExitCode -ne 0) {
+    return $LastExitCode
+}
