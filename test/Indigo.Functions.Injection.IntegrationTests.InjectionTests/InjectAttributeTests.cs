@@ -12,7 +12,7 @@ namespace Indigo.Functions.Injection.IntegrationTests.InjectionTests
         {
             var client = new HttpClient();
             var response =
-                await client.GetAsync(@"http://localhost:7072/test/ConfiguredFunction");
+                await client.GetAsync(@"http://localhost:7072/test/CorrectFunction");
 
             Assert.True(response.IsSuccessStatusCode, "Failed to send HTTP GET");
         }

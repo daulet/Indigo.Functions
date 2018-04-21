@@ -1,6 +1,6 @@
 ﻿using Unity;
 
-namespace Indigo.Functions.Injection.IntegrationTests.ConfiguredFunction
+namespace Indigo.Functions.Injection.IntegrationTests.CorrectConfig
 {
     public class DependencyConfig : IDependencyConfig
     {

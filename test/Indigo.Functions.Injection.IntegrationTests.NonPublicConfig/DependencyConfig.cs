@@ -1,6 +1,6 @@
 ﻿using Unity;
 
-namespace Indigo.Functions.Injection.IntegrationTests.NonPublicFunction
+namespace Indigo.Functions.Injection.IntegrationTests.NonPublicConfig
 {
     internal class DependencyConfig : IDependencyConfig
     {

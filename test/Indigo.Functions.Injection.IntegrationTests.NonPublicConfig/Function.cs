@@ -4,12 +4,12 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 
-namespace Indigo.Functions.Injection.IntegrationTests.ConfiguredFunction
+namespace Indigo.Functions.Injection.IntegrationTests.NonPublicConfig
 {
     public static class Function
     {
-        [FunctionName("ConfiguredFunction")]
-        public static IActionResult ConfiguredFunction(
+        [FunctionName("NonPublicConfigFunction")]
+        public static IActionResult NonPublicConfigFunction(
             [HttpTrigger(AuthorizationLevel.Function, "GET", Route = null)] HttpRequest req,
             [Inject] IDependency dependency,
             TraceWriter log)

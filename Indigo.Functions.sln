@@ -17,11 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection.IntegrationTests.InjectionTests", "test\Indigo.Functions.Injection.IntegrationTests.InjectionTests\Indigo.Functions.Injection.IntegrationTests.InjectionTests.csproj", "{85B3A8B6-1716-4972-AE83-7F2FD334B9BB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection.IntegrationTests.ConfiguredFunction", "test\Indigo.Functions.Injection.IntegrationTests.ConfiguredFunction\Indigo.Functions.Injection.IntegrationTests.ConfiguredFunction.csproj", "{DEC56640-1739-4BC4-B036-C0B1F390E948}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection.IntegrationTests.NonPublicFunction", "test\Indigo.Functions.Injection.IntegrationTests.NonPublicFunction\Indigo.Functions.Injection.IntegrationTests.NonPublicFunction.csproj", "{37D3BF6C-FDD7-48F1-868B-3105E01728E7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InjectionFunctionSample", "sample\InjectionFunctionSample\InjectionFunctionSample.csproj", "{5615968C-9078-4BA2-933A-1D736157D880}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection.IntegrationTests.CorrectConfig", "test\Indigo.Functions.Injection.IntegrationTests.CorrectConfig\Indigo.Functions.Injection.IntegrationTests.CorrectConfig.csproj", "{1BB63E4D-FCE8-414B-A0A2-B24D08BB7C8B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection.IntegrationTests.NonPublicConfig", "test\Indigo.Functions.Injection.IntegrationTests.NonPublicConfig\Indigo.Functions.Injection.IntegrationTests.NonPublicConfig.csproj", "{48E264D7-7153-40E6-9E98-1EB0E39DEC10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,18 +53,18 @@ Global
 		{85B3A8B6-1716-4972-AE83-7F2FD334B9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85B3A8B6-1716-4972-AE83-7F2FD334B9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85B3A8B6-1716-4972-AE83-7F2FD334B9BB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DEC56640-1739-4BC4-B036-C0B1F390E948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DEC56640-1739-4BC4-B036-C0B1F390E948}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DEC56640-1739-4BC4-B036-C0B1F390E948}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DEC56640-1739-4BC4-B036-C0B1F390E948}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37D3BF6C-FDD7-48F1-868B-3105E01728E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37D3BF6C-FDD7-48F1-868B-3105E01728E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37D3BF6C-FDD7-48F1-868B-3105E01728E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37D3BF6C-FDD7-48F1-868B-3105E01728E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5615968C-9078-4BA2-933A-1D736157D880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5615968C-9078-4BA2-933A-1D736157D880}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5615968C-9078-4BA2-933A-1D736157D880}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5615968C-9078-4BA2-933A-1D736157D880}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BB63E4D-FCE8-414B-A0A2-B24D08BB7C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB63E4D-FCE8-414B-A0A2-B24D08BB7C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB63E4D-FCE8-414B-A0A2-B24D08BB7C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB63E4D-FCE8-414B-A0A2-B24D08BB7C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E264D7-7153-40E6-9E98-1EB0E39DEC10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E264D7-7153-40E6-9E98-1EB0E39DEC10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E264D7-7153-40E6-9E98-1EB0E39DEC10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E264D7-7153-40E6-9E98-1EB0E39DEC10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
