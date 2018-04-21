@@ -5,12 +5,12 @@ using Unity;
 
 namespace Indigo.Functions.Injection
 {
-    class InjectedValueProvider : IValueProvider
+    class InjectValueProvider : IValueProvider
     {
         private readonly UnityContainer _container;
         private readonly Type _valueType;
 
-        internal InjectedValueProvider(UnityContainer container, Type valueType)
+        internal InjectValueProvider(UnityContainer container, Type valueType)
         {
             _container = container;
             _valueType = valueType;

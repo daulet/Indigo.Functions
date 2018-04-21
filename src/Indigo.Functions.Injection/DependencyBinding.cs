@@ -21,12 +21,12 @@ namespace Indigo.Functions.Injection
 
         public Task<IValueProvider> BindAsync(object value, ValueBindingContext context)
         {
-            return Task.FromResult<IValueProvider>(new InjectedValueProvider(_container, _valueType));
+            return Task.FromResult<IValueProvider>(new InjectValueProvider(_container, _valueType));
         }
 
         public Task<IValueProvider> BindAsync(BindingContext context)
         {
-            return Task.FromResult<IValueProvider>(new InjectedValueProvider(_container, _valueType));
+            return Task.FromResult<IValueProvider>(new InjectValueProvider(_container, _valueType));
         }
 
         public ParameterDescriptor ToParameterDescriptor()
