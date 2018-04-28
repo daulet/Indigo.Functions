@@ -71,12 +71,12 @@ namespace Indigo.Functions.Configuration
 
         private T GetSettingValueFromAppConfig<T>(ConfigAttribute attribute)
         {
-            return (T)Convert.ChangeType(_config[attribute.SettingName], typeof(T));
+            return (T)Convert.ChangeType(_config[attribute.SettingName], typeof(T), CultureInfo.InvariantCulture);
         }
 
         private TimeSpan GetTimeSpanFromAppConfig(ConfigAttribute attribute)
         {
-            return TimeSpan.Parse(_config[attribute.SettingName]);
+            return TimeSpan.Parse(_config[attribute.SettingName], CultureInfo.InvariantCulture);
         }
     }
 }

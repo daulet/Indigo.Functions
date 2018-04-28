@@ -2,10 +2,33 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>Configuration bindings for Azure Functions</Title>
+    <Description>Azure Functions bindings to read environments settings</Description>
+    <Version>0.1-prerelease</Version>
+    <PackageReleaseNotes>
+      Version 0.1
+
+      * Use [Config] binding for all supported types.
+      * Supported types include all built-in types, also DateTime, DateTimeOffset, Guid, TimeSpan.
+    </PackageReleaseNotes>
+    <Authors>Daulet Zhanguzin</Authors>
+    <Copyright>Copyright (c) Daulet Zhanguzin</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/BSD-3-Clause</PackageLicenseUrl>
+    <PackageTags>azure functions azurefunc binding configuration config</PackageTags>
+    <RepositoryUrl>https://github.com/daulet/Indigo.Functions</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/daulet/Indigo.Functions</PackageProjectUrl>
+  </PropertyGroup>
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.0-beta5" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.0">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
