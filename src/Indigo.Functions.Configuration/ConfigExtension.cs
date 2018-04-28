@@ -1,6 +1,7 @@
 ﻿using Microsoft.Azure.WebJobs.Host.Config;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Globalization;
 
 namespace Indigo.Functions.Configuration
 {
@@ -24,11 +25,17 @@ namespace Indigo.Functions.Configuration
             rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
                 .BindToInput(GetSettingValueFromAppConfig<char>);
             rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+               .BindToInput(GetDateTimeFromAppConfig);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+               .BindToInput(GetDateTimeOffsetFromAppConfig);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
                 .BindToInput(GetSettingValueFromAppConfig<decimal>);
             rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
                 .BindToInput(GetSettingValueFromAppConfig<double>);
             rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
                 .BindToInput(GetSettingValueFromAppConfig<float>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+               .BindToInput(GetGuidFromAppConfig);
             rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
                 .BindToInput(GetSettingValueFromAppConfig<int>);
             rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
@@ -43,11 +50,33 @@ namespace Indigo.Functions.Configuration
                 .BindToInput(GetSettingValueFromAppConfig<ushort>);
             rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
                .BindToInput(GetSettingValueFromAppConfig<string>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+               .BindToInput(GetTimeSpanFromAppConfig);
+        }
+
+        private DateTime GetDateTimeFromAppConfig(ConfigAttribute attribute)
+        {
+            return DateTime.Parse(_config[attribute.SettingName], CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal);
+        }
+
+        private DateTimeOffset GetDateTimeOffsetFromAppConfig(ConfigAttribute attribute)
+        {
+            return DateTimeOffset.Parse(_config[attribute.SettingName], CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal);
+        }
+
+        private Guid GetGuidFromAppConfig(ConfigAttribute attribute)
+        {
+            return Guid.Parse(_config[attribute.SettingName]);
         }
 
         private T GetSettingValueFromAppConfig<T>(ConfigAttribute attribute)
         {
             return (T)Convert.ChangeType(_config[attribute.SettingName], typeof(T));
+        }
+
+        private TimeSpan GetTimeSpanFromAppConfig(ConfigAttribute attribute)
+        {
+            return TimeSpan.Parse(_config[attribute.SettingName]);
         }
     }
 }
