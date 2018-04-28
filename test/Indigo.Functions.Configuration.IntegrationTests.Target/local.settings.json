@@ -3,6 +3,19 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
-    "string":  "abc"
+    "bool": "true",
+    "byte": "255",
+    "sbyte": "127",
+    "char": "X",
+    "decimal": "79228162514264337593543950335",
+    "double": "12345.67890123456",
+    "float": "123.456789",
+    "int": "2147483647",
+    "uint": "4294967295",
+    "long": "9223372036854775807",
+    "ulong": "18446744073709551615",
+    "short": "32767",
+    "ushort": "65535",
+    "string": "abc"
   }
 }

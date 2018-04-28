@@ -16,7 +16,33 @@ namespace Indigo.Functions.Configuration
 
             var rule = context.AddBindingRule<ConfigAttribute>();
             rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
-                .BindToInput(GetSettingValueFromAppConfig<dynamic>);
+                .BindToInput(GetSettingValueFromAppConfig<bool>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<byte>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<sbyte>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<char>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<decimal>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<double>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<float>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<int>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<uint>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<long>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<ulong>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<short>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+                .BindToInput(GetSettingValueFromAppConfig<ushort>);
+            rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
+               .BindToInput(GetSettingValueFromAppConfig<string>);
         }
 
         private T GetSettingValueFromAppConfig<T>(ConfigAttribute attribute)
