@@ -1,5 +1,6 @@
 ﻿using Microsoft.Azure.WebJobs.Host.Config;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace Indigo.Functions.Configuration
 {
@@ -15,12 +16,12 @@ namespace Indigo.Functions.Configuration
 
             var rule = context.AddBindingRule<ConfigAttribute>();
             rule.WhenIsNotNull(nameof(ConfigAttribute.SettingName))
-                .BindToInput(GetSettingValueFromAppConfig);
+                .BindToInput(GetSettingValueFromAppConfig<dynamic>);
         }
 
-        private string GetSettingValueFromAppConfig(ConfigAttribute attribute)
+        private T GetSettingValueFromAppConfig<T>(ConfigAttribute attribute)
         {
-            return _config[attribute.SettingName];
+            return (T)Convert.ChangeType(_config[attribute.SettingName], typeof(T));
         }
     }
 }
