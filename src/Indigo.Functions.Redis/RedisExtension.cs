@@ -1,4 +1,5 @@
-﻿using Microsoft.Azure.WebJobs.Host.Config;
+﻿using Microsoft.Azure.WebJobs.Host.Bindings;
+using Microsoft.Azure.WebJobs.Host.Config;
 using StackExchange.Redis;
 using System;
 using System.Threading.Tasks;
@@ -19,6 +20,16 @@ namespace Indigo.Functions.Redis
 
             rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
                 .BindToInput(BuildConnectionFromAttributeAsync);
+
+            // string input
+            rule.WhenIsNotNull(nameof(RedisAttribute.Key))
+                .BindToInput(GetStringValueFromAttributeAsync);
+            rule.WhenIsNotNull(nameof(RedisAttribute.Key))
+                .BindToInput(GetStringValueFromAttribute);
+
+            // generic output
+            rule.WhenIsNotNull(nameof(RedisAttribute.Key))
+                .BindToCollector(attribute => new RedisAsyncCollector(attribute));
         }
 
         private static IConnectionMultiplexer ThrowValidationError(RedisAttribute attribute)
@@ -40,6 +51,18 @@ namespace Indigo.Functions.Redis
                 .ConfigureAwait(false);
 
             return connectionMultiplexer;
+        }
+
+        private static async Task<string> GetStringValueFromAttributeAsync(RedisAttribute attribute)
+        {
+            var connectionMultiplexer = await BuildConnectionFromAttributeAsync(attribute).ConfigureAwait(false);
+            return await connectionMultiplexer.GetDatabase().StringGetAsync(attribute.Key).ConfigureAwait(false);
+        }
+
+        private static string GetStringValueFromAttribute(RedisAttribute attribute)
+        {
+            var connectionMultiplexer = BuildConnectionFromAttribute(attribute);
+            return connectionMultiplexer.GetDatabase().StringGet(attribute.Key);
         }
     }
 }

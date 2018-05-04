@@ -29,7 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Configurat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Configuration.IntegrationTests", "test\Indigo.Functions.Configuration.IntegrationTests\Indigo.Functions.Configuration.IntegrationTests.csproj", "{54C4E80F-4329-4263-91AF-C2A802C2EAEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Configuration.IntegrationTests.Target", "test\Indigo.Functions.Configuration.IntegrationTests.Target\Indigo.Functions.Configuration.IntegrationTests.Target.csproj", "{494DBFFC-74C0-4B2C-B294-E1A3A85A903D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Configuration.IntegrationTests.Target", "test\Indigo.Functions.Configuration.IntegrationTests.Target\Indigo.Functions.Configuration.IntegrationTests.Target.csproj", "{494DBFFC-74C0-4B2C-B294-E1A3A85A903D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Redis.IntegrationTests", "test\Indigo.Functions.Redis.IntegrationTests\Indigo.Functions.Redis.IntegrationTests.csproj", "{777B3008-0702-48C7-928D-2C5E7D4CDF56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Redis.IntegrationTests.Target", "test\Indigo.Functions.Redis.IntegrationTests.Target\Indigo.Functions.Redis.IntegrationTests.Target.csproj", "{931F2439-6974-4B6A-93E6-FAE69B46B561}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +93,14 @@ Global
 		{494DBFFC-74C0-4B2C-B294-E1A3A85A903D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{494DBFFC-74C0-4B2C-B294-E1A3A85A903D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{494DBFFC-74C0-4B2C-B294-E1A3A85A903D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{777B3008-0702-48C7-928D-2C5E7D4CDF56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{777B3008-0702-48C7-928D-2C5E7D4CDF56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{777B3008-0702-48C7-928D-2C5E7D4CDF56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{777B3008-0702-48C7-928D-2C5E7D4CDF56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{931F2439-6974-4B6A-93E6-FAE69B46B561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{931F2439-6974-4B6A-93E6-FAE69B46B561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{931F2439-6974-4B6A-93E6-FAE69B46B561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{931F2439-6974-4B6A-93E6-FAE69B46B561}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -30,4 +30,3 @@ if ($LastExitCode -ne 0) {
 # Kill processes only if previous actions succeeded, in case you need to debug
 
 Stop-Process (Get-Process func).Id
-Stop-Process (Get-Process redis-server).Id

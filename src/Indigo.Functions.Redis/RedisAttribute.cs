@@ -12,5 +12,8 @@ namespace Indigo.Functions.Redis
         /// </summary>
         [AppSetting(Default = "RedisConfigurationOptions")]
         public string Configuration { get; set; }
+
+        [AutoResolve]
+        public string Key { get; set; }
     }
 }
