@@ -2,7 +2,6 @@
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
-    "AzureWebJobs_ExtensionsPath": "Extensions"
+    "AzureWebJobsDashboard": "UseDevelopmentStorage=true"
   }
 }
