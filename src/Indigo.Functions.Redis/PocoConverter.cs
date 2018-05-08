@@ -12,7 +12,15 @@ namespace Indigo.Functions.Redis
             {
                 return null;
             }
-            return JsonConvert.DeserializeObject<T>(input);
+
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(input);
+            }
+            catch (JsonException)
+            {
+                return null;
+            }
         }
     }
 }

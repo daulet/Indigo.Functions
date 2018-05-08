@@ -151,6 +151,23 @@ namespace Indigo.Functions.Redis.IntegrationTests
         }
 
         [Fact]
+        public async Task Redis_InvalidPocoStored_NullFetched()
+        {
+            // Arrange
+            var key = Path.GetRandomFileName();
+            var database = await _database.Value;
+            await database.StringSetAsync(key, Path.GetRandomFileName());
+
+            // Act
+            var response = await httpClient.GetAsync($"http://localhost:7075/test/poco/{key}");
+            var content = await response.Content.ReadAsStringAsync();
+
+            // Assert
+            var actualObject = JsonConvert.DeserializeObject<CustomObject>(content);
+            Assert.Null(actualObject);
+        }
+
+        [Fact]
         public async Task Redis_SetPocoValue_ValueReadFromRedis()
         {
             // Arrange
