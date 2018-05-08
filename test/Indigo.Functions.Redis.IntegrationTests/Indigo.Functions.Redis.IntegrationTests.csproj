@@ -10,4 +10,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Indigo.Functions.Redis.IntegrationTests.Target\Indigo.Functions.Redis.IntegrationTests.Target.csproj" />
+  </ItemGroup>
+
 </Project>

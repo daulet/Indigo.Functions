@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Indigo.Functions.Redis.IntegrationTests.Target
 {
-    public static class Function
+    public static class StringFunction
     {
         [FunctionName("GetString")]
         public static IActionResult GetString(
-            [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "{path}")] HttpRequest request,
+            [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "string/{path}")] HttpRequest request,
             [Redis(Key = "{path}")] string cachedValue,
             TraceWriter log)
         {
@@ -21,7 +21,7 @@ namespace Indigo.Functions.Redis.IntegrationTests.Target
 
         [FunctionName("SetString")]
         public static async Task<IActionResult> SetString(
-            [HttpTrigger(AuthorizationLevel.Function, "POST", Route = "{path}")] HttpRequest request,
+            [HttpTrigger(AuthorizationLevel.Function, "POST", Route = "string/{path}")] HttpRequest request,
             [Redis(Key = "{path}")] IAsyncCollector<string> collector,
             TraceWriter log)
         {

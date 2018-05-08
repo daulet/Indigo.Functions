@@ -1,5 +1,4 @@
-﻿using Microsoft.Azure.WebJobs.Host.Bindings;
-using Microsoft.Azure.WebJobs.Host.Config;
+﻿using Microsoft.Azure.WebJobs.Host.Config;
 using StackExchange.Redis;
 using System;
 using System.Threading.Tasks;
@@ -15,12 +14,6 @@ namespace Indigo.Functions.Redis
             rule.WhenIsNull(nameof(RedisAttribute.Configuration))
                 .BindToInput(ThrowValidationError);
 
-            rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
-                .BindToInput(BuildConnectionFromAttribute);
-
-            rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
-                .BindToInput(BuildConnectionFromAttributeAsync);
-
             // string input
             rule.WhenIsNotNull(nameof(RedisAttribute.Key))
                 .BindToInput(GetStringValueFromAttributeAsync);
@@ -30,6 +23,10 @@ namespace Indigo.Functions.Redis
             // generic output
             rule.WhenIsNotNull(nameof(RedisAttribute.Key))
                 .BindToCollector(attribute => new RedisAsyncCollector(attribute));
+
+            // generic converters
+            rule.AddOpenConverter<PocoOpenType, string>(typeof(StringConverter<>));
+            rule.AddOpenConverter<string, PocoOpenType>(typeof(PocoConverter<>));
         }
 
         private static IConnectionMultiplexer ThrowValidationError(RedisAttribute attribute)

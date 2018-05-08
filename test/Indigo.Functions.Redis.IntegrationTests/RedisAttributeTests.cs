@@ -1,4 +1,6 @@
-﻿using StackExchange.Redis;
+﻿using Indigo.Functions.Redis.IntegrationTests.Target;
+using Newtonsoft.Json;
+using StackExchange.Redis;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -26,30 +28,82 @@ namespace Indigo.Functions.Redis.IntegrationTests
         [Fact]
         public async Task Redis_GetStringValue_ValueReadFromRedis()
         {
+            // Arrange
             var key = "redis_key";
             var value = Path.GetRandomFileName();
             var database = await _database.Value;
             await database.StringSetAsync(key, value);
 
-            var response =
-                await httpClient.GetAsync($"http://localhost:7075/test/{key}");
+            // Act
+            var response = await httpClient.GetAsync($"http://localhost:7075/test/string/{key}");
+
+            // Assert
             var actualValue = await response.Content.ReadAsStringAsync();
-            
             Assert.Equal(value, actualValue);
         }
 
         [Fact]
         public async Task Redis_SetStringValue_ValueSetInRedis()
         {
+            // Arrange
             var key = "redis_key";
             var value = Path.GetRandomFileName();
-            var response =
-                await httpClient.PostAsync($"http://localhost:7075/test/{key}", new StringContent(value));
 
+            // Act
+            var response =
+                await httpClient.PostAsync($"http://localhost:7075/test/string/{key}", new StringContent(value));
+
+            // Assert
             var database = await _database.Value;
             var actualValue = await database.StringGetAsync(key);
-
             Assert.Equal(value, actualValue);
+        }
+
+        [Fact]
+        public async Task Redis_GetPocoValue_ValueReadFromRedis()
+        {
+            // Arrange
+            var key = Path.GetRandomFileName();
+            var expectedObject = new CustomObject()
+            {
+                IntegerProperty = new Random().Next(),
+                StringProperty = Path.GetRandomFileName(),
+            };
+            var database = await _database.Value;
+            await database.StringSetAsync(key, JsonConvert.SerializeObject(expectedObject));
+
+            // Act
+            var response = await httpClient.GetAsync($"http://localhost:7075/test/poco/{key}");
+            var content = await response.Content.ReadAsStringAsync();
+
+            // Assert
+            var actualObject = JsonConvert.DeserializeObject<CustomObject>(content);
+            Assert.Equal(expectedObject.IntegerProperty, actualObject.IntegerProperty);
+            Assert.Equal(expectedObject.StringProperty, actualObject.StringProperty);
+        }
+
+        [Fact]
+        public async Task Redis_SetPocoValue_ValueReadFromRedis()
+        {
+            // Arrange
+            var key = Path.GetRandomFileName();
+            var expectedObject = new CustomObject()
+            {
+                IntegerProperty = new Random().Next(),
+                StringProperty = Path.GetRandomFileName(),
+            };
+
+            // Act
+            var response = await httpClient.PostAsync($"http://localhost:7075/test/poco/{key}",
+                new StringContent(JsonConvert.SerializeObject(expectedObject)));
+            var content = await response.Content.ReadAsStringAsync();
+
+            // Assert
+            var database = await _database.Value;
+            var actualValue = await database.StringGetAsync(key);
+            var actualObject = JsonConvert.DeserializeObject<CustomObject>(content);
+            Assert.Equal(expectedObject.IntegerProperty, actualObject.IntegerProperty);
+            Assert.Equal(expectedObject.StringProperty, actualObject.StringProperty);
         }
     }
 }

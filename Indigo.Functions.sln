@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Configurat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Redis.IntegrationTests", "test\Indigo.Functions.Redis.IntegrationTests\Indigo.Functions.Redis.IntegrationTests.csproj", "{777B3008-0702-48C7-928D-2C5E7D4CDF56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Redis.IntegrationTests.Target", "test\Indigo.Functions.Redis.IntegrationTests.Target\Indigo.Functions.Redis.IntegrationTests.Target.csproj", "{931F2439-6974-4B6A-93E6-FAE69B46B561}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Redis.IntegrationTests.Target", "test\Indigo.Functions.Redis.IntegrationTests.Target\Indigo.Functions.Redis.IntegrationTests.Target.csproj", "{931F2439-6974-4B6A-93E6-FAE69B46B561}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.Azure.WebJobs;
+using StackExchange.Redis;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using StackExchange.Redis;
 
 namespace Indigo.Functions.Redis
 {
