@@ -10,13 +10,12 @@ namespace Indigo.Functions.Redis
         {
             var rule = context.AddBindingRule<RedisAttribute>();
 
-            rule.WhenIsNull(nameof(RedisAttribute.Configuration))
-                .BindToInput(ThrowValidationError);
+            rule.AddValidator(ValidateRedisAttribute);
 
             // inputs
-            rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
+            rule.WhenIsNull(nameof(RedisAttribute.Key))
                 .BindToInput(GetConnectionMultiplexerValueFromAttribute);
-            rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
+            rule.WhenIsNull(nameof(RedisAttribute.Key))
                 .BindToInput(GetDatabaseValueFromAttribute);
             rule.WhenIsNotNull(nameof(RedisAttribute.Key))
                 .BindToInput(GetStringValueFromAttribute);
@@ -30,9 +29,12 @@ namespace Indigo.Functions.Redis
             rule.AddOpenConverter<string, PocoOpenType>(typeof(PocoConverter<>));
         }
 
-        private static IConnectionMultiplexer ThrowValidationError(RedisAttribute attribute)
+        private static void ValidateRedisAttribute(RedisAttribute attribute, Type parameterType)
         {
-            throw new ArgumentException("RedisAttribute.Configuration parameter cannot be null", nameof(attribute));
+            if (string.IsNullOrEmpty(attribute.Configuration))
+            {
+                throw new ArgumentException("RedisAttribute.Configuration parameter cannot be null", nameof(attribute));
+            }
         }
 
         private static IConnectionMultiplexer GetConnectionMultiplexerValueFromAttribute(RedisAttribute attribute)
