@@ -26,10 +26,44 @@ namespace Indigo.Functions.Redis.IntegrationTests
         }
 
         [Fact]
+        public async Task Redis_GetMultiplexer_ValueReadFromRedis()
+        {
+            // Arrange
+            var key = Path.GetRandomFileName();
+            var value = Path.GetRandomFileName();
+            var database = await _database.Value;
+            await database.StringSetAsync(key, value);
+
+            // Act
+            var response = await httpClient.GetAsync($"http://localhost:7075/test/multiplexer/{key}");
+
+            // Assert
+            var actualValue = await response.Content.ReadAsStringAsync();
+            Assert.Equal(value, actualValue);
+        }
+
+        [Fact]
+        public async Task Redis_GetMultiplexerAsync_ValueReadFromRedis()
+        {
+            // Arrange
+            var key = Path.GetRandomFileName();
+            var value = Path.GetRandomFileName();
+            var database = await _database.Value;
+            await database.StringSetAsync(key, value);
+
+            // Act
+            var response = await httpClient.GetAsync($"http://localhost:7075/test/multiplexerasync/{key}");
+
+            // Assert
+            var actualValue = await response.Content.ReadAsStringAsync();
+            Assert.Equal(value, actualValue);
+        }
+
+        [Fact]
         public async Task Redis_GetStringValue_ValueReadFromRedis()
         {
             // Arrange
-            var key = "redis_key";
+            var key = Path.GetRandomFileName();
             var value = Path.GetRandomFileName();
             var database = await _database.Value;
             await database.StringSetAsync(key, value);
@@ -46,7 +80,7 @@ namespace Indigo.Functions.Redis.IntegrationTests
         public async Task Redis_SetStringValue_ValueSetInRedis()
         {
             // Arrange
-            var key = "redis_key";
+            var key = Path.GetRandomFileName();
             var value = Path.GetRandomFileName();
 
             // Act

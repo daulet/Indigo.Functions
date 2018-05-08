@@ -12,8 +12,8 @@ namespace Indigo.Functions.Redis.IntegrationTests.Target
     {
         [FunctionName("GetString")]
         public static IActionResult GetString(
-            [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "string/{path}")] HttpRequest request,
-            [Redis(Key = "{path}")] string cachedValue,
+            [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "string/{key}")] HttpRequest request,
+            [Redis(Key = "{key}")] string cachedValue,
             TraceWriter log)
         {
             return new OkObjectResult(cachedValue);
@@ -21,8 +21,8 @@ namespace Indigo.Functions.Redis.IntegrationTests.Target
 
         [FunctionName("SetString")]
         public static async Task<IActionResult> SetString(
-            [HttpTrigger(AuthorizationLevel.Function, "POST", Route = "string/{path}")] HttpRequest request,
-            [Redis(Key = "{path}")] IAsyncCollector<string> collector,
+            [HttpTrigger(AuthorizationLevel.Function, "POST", Route = "string/{key}")] HttpRequest request,
+            [Redis(Key = "{key}")] IAsyncCollector<string> collector,
             TraceWriter log)
         {
             string value;

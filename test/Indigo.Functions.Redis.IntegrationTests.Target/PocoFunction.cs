@@ -13,8 +13,8 @@ namespace Indigo.Functions.Redis.IntegrationTests.Target
     {
         [FunctionName("GetPoco")]
         public static IActionResult GetPoco(
-            [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "poco/{path}")] HttpRequest request,
-            [Redis(Key = "{path}")] CustomObject cachedValue,
+            [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "poco/{key}")] HttpRequest request,
+            [Redis(Key = "{key}")] CustomObject cachedValue,
             TraceWriter log)
         {
             return new OkObjectResult(JsonConvert.SerializeObject(cachedValue));
@@ -22,8 +22,8 @@ namespace Indigo.Functions.Redis.IntegrationTests.Target
 
         [FunctionName("SetPoco")]
         public static async Task<IActionResult> SetPoco(
-            [HttpTrigger(AuthorizationLevel.Function, "POST", Route = "poco/{path}")] HttpRequest request,
-            [Redis(Key = "{path}")] IAsyncCollector<CustomObject> collector,
+            [HttpTrigger(AuthorizationLevel.Function, "POST", Route = "poco/{key}")] HttpRequest request,
+            [Redis(Key = "{key}")] IAsyncCollector<CustomObject> collector,
             TraceWriter log)
         {
             string requestBody;

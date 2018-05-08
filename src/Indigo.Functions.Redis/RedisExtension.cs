@@ -14,6 +14,11 @@ namespace Indigo.Functions.Redis
             rule.WhenIsNull(nameof(RedisAttribute.Configuration))
                 .BindToInput(ThrowValidationError);
 
+            rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
+                .BindToInput(BuildConnectionFromAttribute);
+            rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
+                .BindToInput(BuildConnectionFromAttributeAsync);
+
             // string input
             rule.WhenIsNotNull(nameof(RedisAttribute.Key))
                 .BindToInput(GetStringValueFromAttributeAsync);
