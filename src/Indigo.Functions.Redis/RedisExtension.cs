@@ -1,7 +1,6 @@
 ﻿using Microsoft.Azure.WebJobs.Host.Config;
 using StackExchange.Redis;
 using System;
-using System.Threading.Tasks;
 
 namespace Indigo.Functions.Redis
 {
@@ -14,18 +13,15 @@ namespace Indigo.Functions.Redis
             rule.WhenIsNull(nameof(RedisAttribute.Configuration))
                 .BindToInput(ThrowValidationError);
 
+            // inputs
             rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
-                .BindToInput(BuildConnectionFromAttribute);
+                .BindToInput(GetConnectionMultiplexerValueFromAttribute);
             rule.WhenIsNotNull(nameof(RedisAttribute.Configuration))
-                .BindToInput(BuildConnectionFromAttributeAsync);
-
-            // string input
-            rule.WhenIsNotNull(nameof(RedisAttribute.Key))
-                .BindToInput(GetStringValueFromAttributeAsync);
+                .BindToInput(GetDatabaseValueFromAttribute);
             rule.WhenIsNotNull(nameof(RedisAttribute.Key))
                 .BindToInput(GetStringValueFromAttribute);
 
-            // generic output
+            // string output
             rule.WhenIsNotNull(nameof(RedisAttribute.Key))
                 .BindToCollector(attribute => new RedisAsyncCollector(attribute));
 
@@ -39,31 +35,21 @@ namespace Indigo.Functions.Redis
             throw new ArgumentException("RedisAttribute.Configuration parameter cannot be null", nameof(attribute));
         }
 
-        private static IConnectionMultiplexer BuildConnectionFromAttribute(RedisAttribute attribute)
+        private static IConnectionMultiplexer GetConnectionMultiplexerValueFromAttribute(RedisAttribute attribute)
         {
             var connectionMultiplexer = ConnectionMultiplexer.Connect(attribute.Configuration);
-
             return connectionMultiplexer;
         }
 
-        private static async Task<IConnectionMultiplexer> BuildConnectionFromAttributeAsync(RedisAttribute attribute)
+        private static IDatabase GetDatabaseValueFromAttribute(RedisAttribute attribute)
         {
-            var connectionMultiplexer = await ConnectionMultiplexer
-                .ConnectAsync(attribute.Configuration)
-                .ConfigureAwait(false);
-
-            return connectionMultiplexer;
-        }
-
-        private static async Task<string> GetStringValueFromAttributeAsync(RedisAttribute attribute)
-        {
-            var connectionMultiplexer = await BuildConnectionFromAttributeAsync(attribute).ConfigureAwait(false);
-            return await connectionMultiplexer.GetDatabase().StringGetAsync(attribute.Key).ConfigureAwait(false);
+            var connectionMultiplexer = GetConnectionMultiplexerValueFromAttribute(attribute);
+            return connectionMultiplexer.GetDatabase();
         }
 
         private static string GetStringValueFromAttribute(RedisAttribute attribute)
         {
-            var connectionMultiplexer = BuildConnectionFromAttribute(attribute);
+            var connectionMultiplexer = GetConnectionMultiplexerValueFromAttribute(attribute);
             return connectionMultiplexer.GetDatabase().StringGet(attribute.Key);
         }
     }
