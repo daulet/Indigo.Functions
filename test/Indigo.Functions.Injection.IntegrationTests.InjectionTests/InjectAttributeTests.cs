@@ -18,6 +18,12 @@ namespace Indigo.Functions.Injection.IntegrationTests.InjectionTests
             Assert.True(response.IsSuccessStatusCode, "Failed to send HTTP GET");
         }
 
+        [Fact]
+        public async Task Inject_DependencyOnILogger_ILoggerInjected()
+        {
+            var response =
+                await httpClient.GetAsync(@"http://localhost:7073/test/LoggingDependency");
+
             Assert.True(response.IsSuccessStatusCode, "Failed to send HTTP GET");
         }
 

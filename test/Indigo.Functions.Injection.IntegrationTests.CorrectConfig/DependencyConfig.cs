@@ -10,6 +10,7 @@ namespace Indigo.Functions.Injection.IntegrationTests.CorrectConfig
             {
                 var container = new UnityContainer();
                 container.RegisterType<IDependency, DependencyImpl>();
+                container.RegisterType<ILoggingDependency, LoggingDependencyImpl>();
                 return container;
             }
         }

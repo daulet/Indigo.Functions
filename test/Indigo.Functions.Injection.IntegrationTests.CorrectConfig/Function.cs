@@ -16,5 +16,16 @@ namespace Indigo.Functions.Injection.IntegrationTests.CorrectConfig
         {
             return new OkObjectResult($"Instance of dependency {dependency.GetType()}");
         }
+
+        [FunctionName("LoggingDependencyFunction")]
+        public static IActionResult LoggingDependencyFunction(
+            [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "LoggingDependency")] HttpRequest req,
+            [Inject] ILoggingDependency dependency,
+            ILogger log)
+        {
+            dependency.Log($"Logging message to injected logger");
+
+            return new OkObjectResult($"Instance of dependency {dependency.GetType()}");
+        }
     }
 }
