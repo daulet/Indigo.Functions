@@ -1,7 +1,8 @@
-﻿using Microsoft.Azure.WebJobs.Host.Config;
+﻿using Indigo.Functions.Injection.Internal;
+using Microsoft.Azure.WebJobs.Host.Bindings;
+using Microsoft.Azure.WebJobs.Host.Config;
 using System;
 using System.Linq;
-using System.Reflection;
 using Unity;
 
 namespace Indigo.Functions.Injection
@@ -12,10 +13,12 @@ namespace Indigo.Functions.Injection
         {
             var rule = context.AddBindingRule<InjectAttribute>();
 
+            rule.BindToInput<Anonymous>((attribute) => null);
+
             var container = InitializeContainer(context)?.Container;
             if (container != null)
             {
-                rule.Bind(new DependencyBindingProvider(container));
+                rule.AddOpenConverter<Anonymous, OpenType>(typeof(InjectConverter<>), context.Config, container);
             }
         }
 

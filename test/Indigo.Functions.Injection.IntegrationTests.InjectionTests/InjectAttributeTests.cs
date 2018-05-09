@@ -13,7 +13,10 @@ namespace Indigo.Functions.Injection.IntegrationTests.InjectionTests
         public async Task Inject_ConfigExists_InstanceInjected()
         {
             var response =
-                await httpClient.GetAsync(@"http://localhost:7073/test/CorrectFunction");
+                await httpClient.GetAsync(@"http://localhost:7073/test/Dependency");
+
+            Assert.True(response.IsSuccessStatusCode, "Failed to send HTTP GET");
+        }
 
             Assert.True(response.IsSuccessStatusCode, "Failed to send HTTP GET");
         }
