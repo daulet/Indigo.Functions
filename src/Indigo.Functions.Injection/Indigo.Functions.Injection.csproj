@@ -9,12 +9,13 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Dependency Injection bindings for Azure Functions</Title>
     <Description>Azure Functions bindings to inject your dependencies</Description>
-    <Version>0.1-prerelease</Version>
+    <Version>0.2-prerelease</Version>
     <PackageReleaseNotes>
-      Version 0.1
+      Version 0.2
 
       * Use [Inject] binding for all injectable dependencies.
       * Users implement IDependencyConfig to feed Unity container.
+      * Inject ILogger (no configuration necessary) - the same instance used by the rest of the function runtime.
     </PackageReleaseNotes>
     <Authors>Daulet Zhanguzin</Authors>
     <Copyright>Copyright (c) Daulet Zhanguzin</Copyright>
