@@ -5,9 +5,9 @@ This project aims at increasing usabiltiy of [Azure Functions](https://azure.mic
 
 Currently provided bindings:
 
-* [Dependency Injection](#Dependency_Injection) with Unity containers.
-* [Configuration](#Configuration) via App Settings.
-* [Redis](#Redis) input and output with POCO support.
+* [Dependency Injection](#dependency-injection) with Unity containers.
+* [Configuration](#configuration) via App Settings.
+* [Redis](#redis) input and output with POCO support.
 
 ## Dependency Injection
 
