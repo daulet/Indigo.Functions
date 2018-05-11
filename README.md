@@ -3,6 +3,12 @@
 
 This project aims at increasing usabiltiy of [Azure Functions](https://azure.microsoft.com/en-us/blog/introducing-azure-functions/) in real life applications with usage of custom input and output [bindings](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). Azure Functions come with [built in support](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) for some triggers, inputs and outputs, mainly for Azure services like Cosmos DB, Azure Storage, Event Grid, Microsoft Graph etc. However, mature applications require more than just that: some sort of dependency injection for testability purposes; use of non-Azure services, like Redis; configurable parameters that are not hardcoded into the function. Custom input and output bindings provided by this project solve these problems in native Azure Functions way.
 
+Currently provided bindings:
+
+* [Dependency Injection](#Dependency_Injection) with Unity containers.
+* [Configuration](#Configuration) via App Settings.
+* [Redis](#Redis) input and output with POCO support.
+
 ## Dependency Injection
 
 [![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection)
