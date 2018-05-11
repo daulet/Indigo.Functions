@@ -56,7 +56,7 @@ public class StorageAccess : IStorageAccess
 }
 ```
 
-For further details see [working sample]((./sample/InjectionFunctionSample)) and [function declarations in tests](test\Indigo.Functions.Injection.IntegrationTests.CorrectConfig).
+For further details see [working sample]((sample/InjectionFunctionSample)) and [function declarations in tests](test/Indigo.Functions.Injection.IntegrationTests.CorrectConfig).
 
 ### FAQ
 
@@ -87,7 +87,7 @@ public static IActionResult Run(
 }
 ```
 
-[Here](./sample/ConfigurationFunctionSample) is a working sample. The binding supports [simple types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/built-in-types-table) and *string*. In addition, it supports structs like [DateTime](https://docs.microsoft.com/en-us/dotnet/api/system.datetime), [DateTimeOffset](https://docs.microsoft.com/en-us/dotnet/api/system.datetimeoffset), [Guid](https://docs.microsoft.com/en-us/dotnet/api/system.guid) and [TimeSpan](https://docs.microsoft.com/en-us/dotnet/api/system.timespan). A full list of supported types can be found [in integration tests](./test/Indigo.Functions.Configuration.IntegrationTests.Target/Function.cs).
+[Here](sample/ConfigurationFunctionSample) is a working sample. The binding supports [simple types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/built-in-types-table) and *string*. In addition, it supports structs like [DateTime](https://docs.microsoft.com/en-us/dotnet/api/system.datetime), [DateTimeOffset](https://docs.microsoft.com/en-us/dotnet/api/system.datetimeoffset), [Guid](https://docs.microsoft.com/en-us/dotnet/api/system.guid) and [TimeSpan](https://docs.microsoft.com/en-us/dotnet/api/system.timespan). A full list of supported types can be found [in integration tests](test/Indigo.Functions.Configuration.IntegrationTests.Target/Function.cs).
 
 ## Redis
 
@@ -144,7 +144,7 @@ public static async Task<IActionResult> SetPoco(
 }
 ```
 
-To configure your Redis connection string set it in *RedisConfigurationOptions* setting. See [working sample](./sample/RedisFunctionSample) or [integration tests](./test/Indigo.Functions.Redis.IntegrationTests.Target) for full range of functionality.
+To configure your Redis connection string set it in *RedisConfigurationOptions* setting. See [working sample](sample/RedisFunctionSample) or [integration tests](test/Indigo.Functions.Redis.IntegrationTests.Target) for full range of functionality.
 
 ## Real life examples
 
