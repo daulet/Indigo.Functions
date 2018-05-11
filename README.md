@@ -5,8 +5,8 @@ This project aims at increasing usabiltiy of [Azure Functions](https://azure.mic
 
 ## Dependency Injection
 
-![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Injection.svg)
-![Nuget downloads](https://img.shields.io/nuget/dt/Indigo.Functions.Injection.svg)
+[![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection)
+[![Nuget downloads](https://img.shields.io/nuget/dt/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection)
 
 Usage is as simple as adding [Inject] attribute to input that you'd like to inject in declaration of your function.
 
@@ -56,7 +56,7 @@ public class StorageAccess : IStorageAccess
 }
 ```
 
-For further details see [working sample]((sample/InjectionFunctionSample)) and [function declarations in tests](test/Indigo.Functions.Injection.IntegrationTests.CorrectConfig).
+For further details see [working sample](sample/InjectionFunctionSample) and [function declarations in tests](test/Indigo.Functions.Injection.IntegrationTests.CorrectConfig).
 
 ### FAQ
 
@@ -70,8 +70,8 @@ For further details see [working sample]((sample/InjectionFunctionSample)) and [
 
 ## Configuration
 
-![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Configuration.svg)
-![Nuget downloads](https://img.shields.io/nuget/dt/Indigo.Functions.Configuration.svg)
+[![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Configuration.svg)](https://www.nuget.org/packages/Indigo.Functions.Configuration)
+[![Nuget downloads](https://img.shields.io/nuget/dt/Indigo.Functions.Configuration.svg)](https://www.nuget.org/packages/Indigo.Functions.Configuration)
 
 Some applications might have pre-production environments that require different set of parameters (settings) to be fed into your application, e.g. integration tests might have more aggressive timeouts or different integration URL for external service.
 
@@ -91,8 +91,9 @@ public static IActionResult Run(
 
 ## Redis
 
-![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Redis.svg)
-![Nuget downloads](https://img.shields.io/nuget/dt/Indigo.Functions.Redis.svg)
+[![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Redis.svg)](https://www.nuget.org/packages/Indigo.Functions.Redis)
+[![NuGet downloads](https://img.shields.io/nuget/dt/Indigo.Functions.Redis.svg)](https://www.nuget.org/packages/Indigo.Functions.Redis)
+
 
 *[Redis]* binding enables reading Redis strings:
 
