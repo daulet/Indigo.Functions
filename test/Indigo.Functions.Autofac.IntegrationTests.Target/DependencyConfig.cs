@@ -6,8 +6,10 @@ namespace Indigo.Functions.Autofac.IntegrationTests.Target
     {
         public void RegisterComponents(ContainerBuilder builder)
         {
-            builder.RegisterType<DependencyImpl>();
-            builder.RegisterType<LoggingDependencyImpl>();
+            builder.RegisterType<DependencyImpl>()
+                   .As<IDependency>();
+            builder.RegisterType<LoggingDependencyImpl>()
+                   .As<ILoggingDependency>();
         }
     }
 }

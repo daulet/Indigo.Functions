@@ -6,7 +6,8 @@ namespace Indigo.Functions.Autofac.IntegrationTests.MisconfiguredTarget
     {
         public void RegisterComponents(ContainerBuilder builder)
         {
-            builder.RegisterType<DependencyImpl>();
+            builder.RegisterType<DependencyImpl>()
+                   .As<IDependency>();
         }
     }
 }
