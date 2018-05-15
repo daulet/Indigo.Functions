@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Unity.Inte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityFunctionSample", "sample\UnityFunctionSample\UnityFunctionSample.csproj", "{5AA12286-1DC0-4EEF-AE77-781101571842}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Autofac", "src\Indigo.Functions.Autofac\Indigo.Functions.Autofac.csproj", "{A817D153-AAD9-4FB6-ACB6-33ED62CB67A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{5AA12286-1DC0-4EEF-AE77-781101571842}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AA12286-1DC0-4EEF-AE77-781101571842}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AA12286-1DC0-4EEF-AE77-781101571842}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A817D153-AAD9-4FB6-ACB6-33ED62CB67A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A817D153-AAD9-4FB6-ACB6-33ED62CB67A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A817D153-AAD9-4FB6-ACB6-33ED62CB67A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A817D153-AAD9-4FB6-ACB6-33ED62CB67A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
