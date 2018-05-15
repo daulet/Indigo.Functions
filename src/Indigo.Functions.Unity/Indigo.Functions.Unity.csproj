@@ -7,11 +7,11 @@
 
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Title>Dependency Injection bindings for Azure Functions</Title>
-    <Description>Azure Functions bindings to inject your dependencies</Description>
-    <Version>0.2-prerelease</Version>
+    <Title>Unity DI bindings for Azure Functions</Title>
+    <Description>Azure Functions bindings to inject your dependencies with Unity containers</Description>
+    <Version>0.1-prerelease</Version>
     <PackageReleaseNotes>
-      Version 0.2
+      Version 0.1
 
       * Use [Inject] binding for all injectable dependencies.
       * Users implement IDependencyConfig to feed Unity container.
@@ -20,7 +20,7 @@
     <Authors>Daulet Zhanguzin</Authors>
     <Copyright>Copyright (c) Daulet Zhanguzin</Copyright>
     <PackageLicenseUrl>https://opensource.org/licenses/BSD-3-Clause</PackageLicenseUrl>
-    <PackageTags>azure functions azurefunc binding di dependency injection</PackageTags>
+    <PackageTags>azure functions azurefunc binding di dependency injection unity container</PackageTags>
     <RepositoryUrl>https://github.com/daulet/Indigo.Functions</RepositoryUrl>
     <PackageProjectUrl>https://github.com/daulet/Indigo.Functions</PackageProjectUrl>
   </PropertyGroup>

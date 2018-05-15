@@ -1,7 +1,6 @@
 ﻿using Indigo.Functions.Unity.Internal;
 using Microsoft.Azure.WebJobs.Host.Bindings;
 using Microsoft.Azure.WebJobs.Host.Config;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using Unity;
