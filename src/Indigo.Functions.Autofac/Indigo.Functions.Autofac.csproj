@@ -2,11 +2,36 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>Autofac DI bindings for Azure Functions</Title>
+    <Description>Azure Functions bindings to inject your dependencies with Autofac</Description>
+    <Version>0.1-prerelease</Version>
+    <PackageReleaseNotes>
+      Version 0.1
+
+      * Use [Inject] binding for all injectable dependencies.
+      * Users implement IDependencyConfig to feed Autofac container.
+      * Inject ILogger (no configuration necessary) - the same instance used by the rest of the function runtime.
+    </PackageReleaseNotes>
+    <Authors>Daulet Zhanguzin</Authors>
+    <Copyright>Copyright (c) Daulet Zhanguzin</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/BSD-3-Clause</PackageLicenseUrl>
+    <PackageTags>azure functions azurefunc binding di dependency injection autofac container</PackageTags>
+    <RepositoryUrl>https://github.com/daulet/Indigo.Functions</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/daulet/Indigo.Functions</PackageProjectUrl>
+  </PropertyGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.0.0" />
     <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.0-beta5" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.0">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
