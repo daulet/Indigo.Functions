@@ -1,4 +1,4 @@
-﻿namespace InjectionFunctionSample
+﻿namespace UnityFunctionSample
 {
     public interface IStorageAccess
     {

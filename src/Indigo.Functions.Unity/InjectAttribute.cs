@@ -1,7 +1,7 @@
 ﻿using Microsoft.Azure.WebJobs.Description;
 using System;
 
-namespace Indigo.Functions.Injection
+namespace Indigo.Functions.Unity
 {
     [Binding]
     [AttributeUsage(AttributeTargets.Parameter)]

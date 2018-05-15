@@ -1,4 +1,4 @@
-﻿namespace Indigo.Functions.Injection.IntegrationTests.NonPublicConfig
+﻿namespace Indigo.Functions.Unity.IntegrationTests.MisconfiguredTarget
 {
     public interface IDependency
     {

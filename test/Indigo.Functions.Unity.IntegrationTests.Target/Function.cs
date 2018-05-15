@@ -4,7 +4,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 
-namespace Indigo.Functions.Injection.IntegrationTests.CorrectConfig
+namespace Indigo.Functions.Unity.IntegrationTests.Target
 {
     public static class Function
     {

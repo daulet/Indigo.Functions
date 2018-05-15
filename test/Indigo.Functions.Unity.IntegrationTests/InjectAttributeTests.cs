@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Indigo.Functions.Injection.IntegrationTests.InjectionTests
+namespace Indigo.Functions.Unity.IntegrationTests
 {
     public class InjectAttributeTests
     {

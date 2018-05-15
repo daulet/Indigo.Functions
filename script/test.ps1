@@ -16,13 +16,13 @@ if ($LastExitCode -ne 0) {
 # Kill processes only if previous actions succeeded, in case you need to debug
 Stop-Process (Get-Process func).Id
 
-################
-# Test Injection
-################
+############
+# Test Redis
+############
 
-Start-AzureFunction 7073 -workingDir "test\Indigo.Functions.Injection.IntegrationTests.CorrectConfig\bin\Debug\netstandard2.0"
-Start-AzureFunction 7074 -workingDir "test\Indigo.Functions.Injection.IntegrationTests.NonPublicConfig\bin\Debug\netstandard2.0"
-dotnet test test\Indigo.Functions.Injection.IntegrationTests.InjectionTests\Indigo.Functions.Injection.IntegrationTests.InjectionTests.csproj
+Start-AzureFunction 7075 -workingDir "test\Indigo.Functions.Redis.IntegrationTests.Target\bin\Debug\netstandard2.0"
+Start-Process redis-server -PassThru
+dotnet test test\Indigo.Functions.Redis.IntegrationTests\Indigo.Functions.Redis.IntegrationTests.csproj --no-build
 
 if ($LastExitCode -ne 0) {
     return $LastExitCode
@@ -31,13 +31,13 @@ if ($LastExitCode -ne 0) {
 # Kill processes only if previous actions succeeded, in case you need to debug
 Stop-Process (Get-Process func).Id
 
-############
-# Test Redis
-############
+################
+# Test Unity
+################
 
-Start-AzureFunction 7075 -workingDir "test\Indigo.Functions.Redis.IntegrationTests.Target\bin\Debug\netstandard2.0"
-Start-Process redis-server -PassThru
-dotnet test test\Indigo.Functions.Redis.IntegrationTests\Indigo.Functions.Redis.IntegrationTests.csproj --no-build
+Start-AzureFunction 7073 -workingDir "test\Indigo.Functions.Unity.IntegrationTests.Target\bin\Debug\netstandard2.0"
+Start-AzureFunction 7074 -workingDir "test\Indigo.Functions.Unity.IntegrationTests.MisconfiguredTarget\bin\Debug\netstandard2.0"
+dotnet test test\Indigo.Functions.Unity.IntegrationTests\Indigo.Functions.Unity.IntegrationTests.csproj
 
 if ($LastExitCode -ne 0) {
     return $LastExitCode

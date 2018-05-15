@@ -1,6 +1,6 @@
 ﻿using Unity;
 
-namespace Indigo.Functions.Injection
+namespace Indigo.Functions.Unity
 {
     public interface IDependencyConfig
     {

@@ -1,11 +1,11 @@
-using Indigo.Functions.Injection;
+using Indigo.Functions.Unity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 
-namespace InjectionFunctionSample
+namespace UnityFunctionSample
 {
     public static class InjectedFunction
     {

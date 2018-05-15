@@ -4,7 +4,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 
-namespace Indigo.Functions.Injection.IntegrationTests.NonPublicConfig
+namespace Indigo.Functions.Unity.IntegrationTests.MisconfiguredTarget
 {
     public static class Function
     {

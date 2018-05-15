@@ -1,8 +1,8 @@
-﻿using Indigo.Functions.Injection.Internal;
+﻿using Indigo.Functions.Unity.Internal;
 using Microsoft.Azure.WebJobs;
 using Unity;
 
-namespace Indigo.Functions.Injection
+namespace Indigo.Functions.Unity
 {
     public class InjectConverter<T> : IConverter<Anonymous, T>
     {

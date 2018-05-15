@@ -1,4 +1,4 @@
-﻿namespace Indigo.Functions.Injection.Internal
+﻿namespace Indigo.Functions.Unity.Internal
 {
     public sealed class Anonymous
     {

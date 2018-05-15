@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Indigo.Functions.Injection.IntegrationTests.CorrectConfig
+namespace Indigo.Functions.Unity.IntegrationTests.Target
 {
     public interface ILoggingDependency
     {

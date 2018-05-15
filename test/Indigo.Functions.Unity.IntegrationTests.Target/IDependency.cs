@@ -1,4 +1,4 @@
-﻿namespace Indigo.Functions.Injection.IntegrationTests.CorrectConfig
+﻿namespace Indigo.Functions.Unity.IntegrationTests.Target
 {
     public interface IDependency
     {
