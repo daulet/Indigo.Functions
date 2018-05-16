@@ -26,6 +26,19 @@ namespace Indigo.Functions.Redis.IntegrationTests
         }
 
         [Fact]
+        public async Task Redis_GetMultiplexer_EnsureSharedInstance()
+        {
+            // Act
+            var response1 = await httpClient.GetAsync($"http://localhost:7075/test/resource/multiplexer1");
+            var response2 = await httpClient.GetAsync($"http://localhost:7075/test/resource/multiplexer2");
+
+            // Assert
+            var hashCode1 = await response1.Content.ReadAsStringAsync();
+            var hashCode2 = await response2.Content.ReadAsStringAsync();
+            Assert.Equal(hashCode1, hashCode2);
+        }
+
+        [Fact]
         public async Task Redis_GetMultiplexer_ValueReadFromRedis()
         {
             // Arrange

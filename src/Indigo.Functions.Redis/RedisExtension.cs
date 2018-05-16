@@ -1,11 +1,19 @@
 ﻿using Microsoft.Azure.WebJobs.Host.Config;
 using StackExchange.Redis;
 using System;
+using System.Collections.Generic;
 
 namespace Indigo.Functions.Redis
 {
     public class RedisExtension : IExtensionConfigProvider
     {
+        private readonly Dictionary<string, IConnectionMultiplexer> _connections;
+
+        public RedisExtension()
+        {
+            _connections = new Dictionary<string, IConnectionMultiplexer>();
+        }
+
         public void Initialize(ExtensionConfigContext context)
         {
             var rule = context.AddBindingRule<RedisAttribute>();
@@ -37,19 +45,22 @@ namespace Indigo.Functions.Redis
             }
         }
 
-        private static IConnectionMultiplexer GetConnectionMultiplexerValueFromAttribute(RedisAttribute attribute)
+        private IConnectionMultiplexer GetConnectionMultiplexerValueFromAttribute(RedisAttribute attribute)
         {
-            var connectionMultiplexer = ConnectionMultiplexer.Connect(attribute.Configuration);
-            return connectionMultiplexer;
+            if (!_connections.ContainsKey(attribute.Configuration))
+            {
+                _connections[attribute.Configuration] = ConnectionMultiplexer.Connect(attribute.Configuration);
+            }
+            return _connections[attribute.Configuration];
         }
 
-        private static IDatabase GetDatabaseValueFromAttribute(RedisAttribute attribute)
+        private IDatabase GetDatabaseValueFromAttribute(RedisAttribute attribute)
         {
             var connectionMultiplexer = GetConnectionMultiplexerValueFromAttribute(attribute);
             return connectionMultiplexer.GetDatabase();
         }
 
-        private static string GetStringValueFromAttribute(RedisAttribute attribute)
+        private string GetStringValueFromAttribute(RedisAttribute attribute)
         {
             var connectionMultiplexer = GetConnectionMultiplexerValueFromAttribute(attribute);
             return connectionMultiplexer.GetDatabase().StringGet(attribute.Key);
