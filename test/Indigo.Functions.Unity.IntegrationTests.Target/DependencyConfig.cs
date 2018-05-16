@@ -4,15 +4,10 @@ namespace Indigo.Functions.Unity.IntegrationTests.Target
 {
     public class DependencyConfig : IDependencyConfig
     {
-        public UnityContainer Container
+        public void RegisterComponents(UnityContainer container)
         {
-            get
-            {
-                var container = new UnityContainer();
-                container.RegisterType<IDependency, DependencyImpl>();
-                container.RegisterType<ILoggingDependency, LoggingDependencyImpl>();
-                return container;
-            }
+            container.RegisterType<IDependency, DependencyImpl>();
+            container.RegisterType<ILoggingDependency, LoggingDependencyImpl>();
         }
     }
 }

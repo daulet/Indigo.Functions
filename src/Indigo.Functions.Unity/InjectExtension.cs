@@ -15,10 +15,13 @@ namespace Indigo.Functions.Unity
 
             rule.BindToInput<Anonymous>((attribute) => null);
 
-            var container = InitializeContainer(context)?.Container;
-            if (container != null)
+            var dependencyConfig = InitializeContainer(context);
+            if (dependencyConfig != null)
             {
+                var container = new UnityContainer();
+                dependencyConfig.RegisterComponents(container);
                 container.RegisterInstance(context.Config.LoggerFactory.CreateLogger("Host.General"));
+
                 rule.AddOpenConverter<Anonymous, OpenType>(typeof(InjectConverter<>), context.Config, container);
             }
         }

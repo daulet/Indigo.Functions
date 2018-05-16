@@ -4,14 +4,9 @@ namespace Indigo.Functions.Unity.IntegrationTests.MisconfiguredTarget
 {
     internal class DependencyConfig : IDependencyConfig
     {
-        public UnityContainer Container
+        public void RegisterComponents(UnityContainer container)
         {
-            get
-            {
-                var container = new UnityContainer();
-                container.RegisterType<IDependency, DependencyImpl>();
-                return container;
-            }
+            container.RegisterType<IDependency, DependencyImpl>();
         }
     }
 }

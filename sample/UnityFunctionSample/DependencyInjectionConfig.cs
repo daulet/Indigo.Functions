@@ -5,15 +5,10 @@ namespace UnityFunctionSample
 {
     public class DependencyInjectionConfig : IDependencyConfig
     {
-        public UnityContainer Container
+        public void RegisterComponents(UnityContainer container)
         {
-            get
-            {
-                var container = new UnityContainer();
-                container.RegisterType<ITableAccess, CloudTableAccess>();
-                container.RegisterType<IStorageAccess, StorageAccess>();
-                return container;
-            }
+            container.RegisterType<ITableAccess, CloudTableAccess>();
+            container.RegisterType<IStorageAccess, StorageAccess>();
         }
     }
 }

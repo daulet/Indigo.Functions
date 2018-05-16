@@ -4,6 +4,6 @@ namespace Indigo.Functions.Unity
 {
     public interface IDependencyConfig
     {
-        UnityContainer Container { get; }
+        void RegisterComponents(UnityContainer container);
     }
 }

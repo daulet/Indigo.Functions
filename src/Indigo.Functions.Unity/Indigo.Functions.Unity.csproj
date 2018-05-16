@@ -30,7 +30,7 @@
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Unity.Container" Version="5.8.5" />
+    <PackageReference Include="Unity.Container" Version="5.7.0" />
   </ItemGroup>
 
 </Project>
