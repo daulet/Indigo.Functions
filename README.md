@@ -5,19 +5,16 @@ This project aims at increasing usabiltiy of [Azure Functions](https://azure.mic
 
 Currently provided bindings:
 
-* [Dependency Injection](#dependency-injection) with Unity containers.
+* [Dependency Injection](#dependency-injection) with [Autofac](#autofac) and [Unity](#unity) containers.
 * [Configuration](#configuration) via App Settings.
 * [Redis](#redis) input and output with POCO support.
 
 ## Dependency Injection
 
-[![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection)
-[![Nuget downloads](https://img.shields.io/nuget/dt/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection)
-
 Usage is as simple as adding [Inject] attribute to input that you'd like to inject in declaration of your function.
 
 ```cs
-[FunctionName("DependencyInjectionExample")]
+[FunctionName("Example")]
 public static IActionResult Run(
     [HttpTrigger("GET")] HttpRequest request,
     [Inject] IStorageAccess storageAccess)
@@ -26,26 +23,7 @@ public static IActionResult Run(
 }
 ```
 
-How does it know what instance to inject? You'd do wiring in a public class that implements *IDependencyConfig* interface, the same way you'd setup a normal Unity DI container.
-
-```cs
-public class DependencyInjectionConfig : IDependencyConfig
-{
-    public UnityContainer Container
-    {
-        get
-        {
-            var container = new UnityContainer();
-            container.RegisterType<ITableAccess, CloudTableAccess>();
-            container.RegisterType<IStorageAccess, StorageAccess>();
-            return container;
-        }
-    }
-}
-```
-As long as you ship *IDependencyConfig* implementation in the same binary, *[Inject]* binding will resolve the right instance of the object at runtime.
-
-In addition you can inject [Microsoft.Extensions.Logging.ILogger](https://github.com/Azure/azure-functions-host/wiki/ILogger) instance used by Azure Functions to log to file system and App Insights - no container registration necessary! Just declare it as dependency in your implementation class anywhere in your dependency tree.
+You can use either [Autofac](#autofac) or [Unity](#unity) to register your components. In addition, you can inject [Microsoft.Extensions.Logging.ILogger](https://github.com/Azure/azure-functions-host/wiki/ILogger) instance used by Azure Functions to log to file system and App Insights - no container registration necessary! Just declare it as dependency in your implementation class anywhere in your dependency tree.
 
 ```cs
 using Microsoft.Extensions.Logging;
@@ -62,17 +40,55 @@ public class StorageAccess : IStorageAccess
 }
 ```
 
+### Autofac
+
+[![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Autofac.svg)](https://www.nuget.org/packages/Indigo.Functions.Autofac)
+[![Nuget downloads](https://img.shields.io/nuget/dt/Indigo.Functions.Autofac.svg)](https://www.nuget.org/packages/Indigo.Functions.Autofac)
+
+Create implementation of *IDependencyConfig* interface (public visibility) in your function's binary:
+
+```cs
+public class DependencyConfig : IDependencyConfig
+{
+    public void RegisterComponents(ContainerBuilder builder)
+    {
+        builder
+            .RegisterType<StorageAccess>()
+            .As<IStorageAccess>();
+    }
+}
+```
+
+### Unity
+
+[![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Unity.svg)](https://www.nuget.org/packages/Indigo.Functions.Unity)
+[![Nuget downloads](https://img.shields.io/nuget/dt/Indigo.Functions.Unity.svg)](https://www.nuget.org/packages/Indigo.Functions.Unity)
+
+Create implementation of *IDependencyConfig* interface (public visibility) in your function's binary:
+
+```cs
+public class DependencyInjectionConfig : IDependencyConfig
+{
+    public UnityContainer Container
+    {
+        get
+        {
+            var container = new UnityContainer();
+            container.RegisterType<ITableAccess, CloudTableAccess>();
+            container.RegisterType<IStorageAccess, StorageAccess>();
+            return container;
+        }
+    }
+}
+```
+
 For further details see [working sample](sample/InjectionFunctionSample) and [function declarations in tests](test/Indigo.Functions.Injection.IntegrationTests.CorrectConfig).
 
 ### FAQ
 
-1. What if I need multiple containers for my application?
+* What if I need multiple containers for my application?
 
     *Azure Functions or any Function as a Service is a culmination of decades long effort towards reducing deployment, but more importatnly maintenance complexity by breaking down a monolith into applications to individual functions. So use it right, and separate your other function that needs a different container into a separate binary.*
-
-2. Why Unity and not Autofac?
-
-    *No technical reason, picked at random. File an issue if interested in Autofac support.*
 
 ## Configuration
 
