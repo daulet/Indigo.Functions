@@ -59,6 +59,8 @@ public class DependencyConfig : IDependencyConfig
 }
 ```
 
+For further details see [working sample](sample/AutofacFunctionSample) or [function declarations in tests](test/Indigo.Functions.Autofac.IntegrationTests.Target).
+
 ### Unity
 
 [![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Unity.svg)](https://www.nuget.org/packages/Indigo.Functions.Unity)
@@ -82,7 +84,7 @@ public class DependencyInjectionConfig : IDependencyConfig
 }
 ```
 
-For further details see [working sample](sample/InjectionFunctionSample) and [function declarations in tests](test/Indigo.Functions.Injection.IntegrationTests.CorrectConfig).
+For further details see [working sample](sample/UnityFunctionSample) or [function declarations in tests](test/Indigo.Functions.Unity.IntegrationTests.Target).
 
 ### FAQ
 
