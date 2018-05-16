@@ -71,15 +71,9 @@ Create implementation of *IDependencyConfig* interface (public visibility) in yo
 ```cs
 public class DependencyInjectionConfig : IDependencyConfig
 {
-    public UnityContainer Container
+    public void RegisterComponents(UnityContainer container)
     {
-        get
-        {
-            var container = new UnityContainer();
-            container.RegisterType<ITableAccess, CloudTableAccess>();
-            container.RegisterType<IStorageAccess, StorageAccess>();
-            return container;
-        }
+        container.RegisterType<IStorageAccess, StorageAccess>();
     }
 }
 ```
