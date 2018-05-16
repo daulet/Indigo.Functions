@@ -9,12 +9,11 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Redis bindings for Azure Functions</Title>
     <Description>Azure Functions bindings to abstract away Redis boilerpate</Description>
-    <Version>0.2-prerelease</Version>
+    <Version>0.3-prerelease</Version>
     <PackageReleaseNotes>
-Version 0.2
+Version 0.3
 
-* Add POCO support for [Redis] binding.
-* Other supported types include string, IConnectionMultiplexer, IDatabase.
+* Memory management improvements via sharing IConnectionMultiplexer instance;
     </PackageReleaseNotes>
     <Authors>Daulet Zhanguzin</Authors>
     <Copyright>Copyright (c) Daulet Zhanguzin</Copyright>
