@@ -35,13 +35,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Unity.Inte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityFunctionSample", "sample\UnityFunctionSample\UnityFunctionSample.csproj", "{5AA12286-1DC0-4EEF-AE77-781101571842}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Autofac", "src\Indigo.Functions.Autofac\Indigo.Functions.Autofac.csproj", "{A817D153-AAD9-4FB6-ACB6-33ED62CB67A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Autofac", "src\Indigo.Functions.Autofac\Indigo.Functions.Autofac.csproj", "{A817D153-AAD9-4FB6-ACB6-33ED62CB67A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Autofac.IntegrationTests", "test\Indigo.Functions.Autofac.IntegrationTests\Indigo.Functions.Autofac.IntegrationTests.csproj", "{5FFDBEA2-479F-4722-90E5-E1C043C3F80A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Autofac.IntegrationTests", "test\Indigo.Functions.Autofac.IntegrationTests\Indigo.Functions.Autofac.IntegrationTests.csproj", "{5FFDBEA2-479F-4722-90E5-E1C043C3F80A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Autofac.IntegrationTests.Target", "test\Indigo.Functions.Autofac.IntegrationTests.Target\Indigo.Functions.Autofac.IntegrationTests.Target.csproj", "{B8CBA68F-2278-4201-AFBA-55AE7A5F0021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Autofac.IntegrationTests.Target", "test\Indigo.Functions.Autofac.IntegrationTests.Target\Indigo.Functions.Autofac.IntegrationTests.Target.csproj", "{B8CBA68F-2278-4201-AFBA-55AE7A5F0021}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Functions.Autofac.IntegrationTests.MisconfiguredTarget", "test\Indigo.Functions.Autofac.IntegrationTests.MisconfiguredTarget\Indigo.Functions.Autofac.IntegrationTests.MisconfiguredTarget.csproj", "{A042D080-3FEA-4407-98E6-887D0E3C3CFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Autofac.IntegrationTests.MisconfiguredTarget", "test\Indigo.Functions.Autofac.IntegrationTests.MisconfiguredTarget\Indigo.Functions.Autofac.IntegrationTests.MisconfiguredTarget.csproj", "{A042D080-3FEA-4407-98E6-887D0E3C3CFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacFunctionSample", "sample\AutofacFunctionSample\AutofacFunctionSample.csproj", "{643AF018-EC28-416E-8366-1B23F5CADE4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +127,10 @@ Global
 		{A042D080-3FEA-4407-98E6-887D0E3C3CFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A042D080-3FEA-4407-98E6-887D0E3C3CFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A042D080-3FEA-4407-98E6-887D0E3C3CFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{643AF018-EC28-416E-8366-1B23F5CADE4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{643AF018-EC28-416E-8366-1B23F5CADE4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{643AF018-EC28-416E-8366-1B23F5CADE4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{643AF018-EC28-416E-8366-1B23F5CADE4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -134,6 +140,7 @@ Global
 		{BD507E66-7F99-453A-A54E-EE75E3F26009} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
 		{00B223E8-5FBA-48E0-8DBA-137DCADF56F5} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
 		{5AA12286-1DC0-4EEF-AE77-781101571842} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
+		{643AF018-EC28-416E-8366-1B23F5CADE4D} = {2D4AADF6-CFFA-4C73-9A31-5E24799C1F28}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE8F85C4-2430-42BE-9233-1BA1D0C8B01A}
