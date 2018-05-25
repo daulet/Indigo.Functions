@@ -8,12 +8,13 @@ namespace Indigo.Functions.Autofac.IntegrationTests
     public class InjectAttributeTests
     {
         private static readonly HttpClient httpClient = new HttpClient();
+        private static readonly Config config = new Config();
 
         [Fact]
         public async Task Inject_ConfigExists_InstanceInjected()
         {
             var response =
-                await httpClient.GetAsync(@"http://localhost:7072/test/Dependency");
+                await httpClient.GetAsync($"{config.TargetUrl}/Dependency");
 
             Assert.True(response.IsSuccessStatusCode, "Failed to send HTTP GET");
         }
@@ -22,7 +23,7 @@ namespace Indigo.Functions.Autofac.IntegrationTests
         public async Task Inject_DependencyOnILogger_ILoggerInjected()
         {
             var response =
-                await httpClient.GetAsync(@"http://localhost:7072/test/LoggingDependency");
+                await httpClient.GetAsync($"{config.TargetUrl}/LoggingDependency");
 
             Assert.True(response.IsSuccessStatusCode, "Failed to send HTTP GET");
         }
@@ -31,7 +32,7 @@ namespace Indigo.Functions.Autofac.IntegrationTests
         public async Task Inject_NonPublicConfig_FunctionFailsToResolveDependency()
         {
             var response =
-                await httpClient.GetAsync(@"http://localhost:7073/test/NonPublicConfigFunction");
+                await httpClient.GetAsync($"{config.MisconfiguredTargetUrl}/NonPublicConfigFunction");
 
             Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
         }

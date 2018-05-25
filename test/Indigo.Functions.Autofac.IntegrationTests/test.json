@@ -1,0 +1,4 @@
+﻿{
+  "TestMisconfiguredTargetUri": "http://localhost:7073/test",
+  "TestTargetUri": "http://localhost:7072/test"
+}

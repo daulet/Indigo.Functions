@@ -43,7 +43,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Autofac.In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Autofac.IntegrationTests.MisconfiguredTarget", "test\Indigo.Functions.Autofac.IntegrationTests.MisconfiguredTarget\Indigo.Functions.Autofac.IntegrationTests.MisconfiguredTarget.csproj", "{A042D080-3FEA-4407-98E6-887D0E3C3CFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacFunctionSample", "sample\AutofacFunctionSample\AutofacFunctionSample.csproj", "{643AF018-EC28-416E-8366-1B23F5CADE4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutofacFunctionSample", "sample\AutofacFunctionSample\AutofacFunctionSample.csproj", "{643AF018-EC28-416E-8366-1B23F5CADE4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
