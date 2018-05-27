@@ -27,6 +27,17 @@ namespace Indigo.Functions.Unity.IntegrationTests
             Assert.True(response.IsSuccessStatusCode, "Failed to send HTTP GET");
         }
 
+        [Theory]
+        [InlineData("setting1", "value1")]
+        [InlineData("setting2", "value2")]
+        public async Task Inject_DependencyOnIConfiguration_SettingRead(string settingName, string expectedValue)
+        {
+            var response = await httpClient.GetAsync($"http://localhost:7073/test/config/{settingName}");
+            var value = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(expectedValue, value);
+        }
+
         [Fact]
         public async Task Inject_NonPublicConfig_FunctionFailsToResolveDependency()
         {

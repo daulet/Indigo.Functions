@@ -8,6 +8,15 @@ namespace Indigo.Functions.Unity.IntegrationTests.Target
 {
     public static class Function
     {
+        [FunctionName("ConfigurationFunction")]
+        public static IActionResult ConfigurationFunction(
+            [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "config/{key}")] HttpRequest req,
+            string key,
+            [Inject] ValueProvider provider)
+        {
+            return new OkObjectResult(provider.GetSettingValue(key));
+        }
+
         [FunctionName("DependencyFunction")]
         public static IActionResult DependencyFunction(
             [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "Dependency")] HttpRequest req,

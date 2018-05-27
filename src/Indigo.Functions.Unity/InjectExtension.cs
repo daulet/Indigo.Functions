@@ -1,6 +1,7 @@
 ﻿using Indigo.Functions.Unity.Internal;
 using Microsoft.Azure.WebJobs.Host.Bindings;
 using Microsoft.Azure.WebJobs.Host.Config;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Linq;
 using Unity;
@@ -20,7 +21,14 @@ namespace Indigo.Functions.Unity
             {
                 var container = new UnityContainer();
                 dependencyConfig.RegisterComponents(container);
-                container.RegisterInstance(context.Config.LoggerFactory.CreateLogger("Host.General"));
+
+                var configuration = new ConfigurationBuilder()
+                    .AddEnvironmentVariables()
+                    .Build();
+                container.RegisterInstance<IConfiguration>(configuration);
+
+                var logger = context.Config.LoggerFactory.CreateLogger("Host.General");
+                container.RegisterInstance(logger);
 
                 rule.AddOpenConverter<Anonymous, OpenType>(typeof(InjectConverter<>), context.Config, container);
             }
