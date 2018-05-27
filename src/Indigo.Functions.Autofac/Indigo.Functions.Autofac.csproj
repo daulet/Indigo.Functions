@@ -9,13 +9,14 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Autofac DI bindings for Azure Functions</Title>
     <Description>Azure Functions bindings to inject your dependencies with Autofac</Description>
-    <Version>0.1-prerelease</Version>
+    <Version>0.3-prerelease</Version>
     <PackageReleaseNotes>
-      Version 0.1
+      Version 0.3
 
       * Use [Inject] binding for all injectable dependencies.
-      * Users implement IDependencyConfig to feed Autofac container.
-      * Inject ILogger (no configuration necessary) - the same instance used by the rest of the function runtime.
+      * Implement IDependencyConfig to configure Autofac components and declare your dependencies.
+      * Auto inject (no registration required) Microsoft.Extensions.Configuration.IConfiguration to read App Settings.
+      * Auto inject (no registration required) Microsoft.Extensions.Logging.ILogger to log to both file system and Application Insights.
     </PackageReleaseNotes>
     <Authors>Daulet Zhanguzin</Authors>
     <Copyright>Copyright (c) Daulet Zhanguzin</Copyright>

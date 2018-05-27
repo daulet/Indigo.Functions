@@ -9,13 +9,14 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Unity DI bindings for Azure Functions</Title>
     <Description>Azure Functions bindings to inject your dependencies with Unity containers</Description>
-    <Version>0.2-prerelease</Version>
+    <Version>0.3-prerelease</Version>
     <PackageReleaseNotes>
-      Version 0.2
+      Version 0.3
 
-      * Use [Inject] binding to inject all instances.
+      * Use [Inject] binding for all injectable dependencies.
       * Implement IDependencyConfig to configure Unity container and declare your dependencies.
-      * Inject ILogger (no configuration necessary) - the standard interface to log in Azure Function.
+      * Auto inject (no registration required) Microsoft.Extensions.Configuration.IConfiguration to read App Settings.
+      * Auto inject (no registration required) Microsoft.Extensions.Logging.ILogger to log to both file system and Application Insights.
     </PackageReleaseNotes>
     <Authors>Daulet Zhanguzin</Authors>
     <Copyright>Copyright (c) Daulet Zhanguzin</Copyright>
