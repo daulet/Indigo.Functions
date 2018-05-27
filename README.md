@@ -1,6 +1,9 @@
 # Indigo Functions
 *Write better Azure Functions*
 
+![runtime](https://img.shields.io/badge/Azure%20Functions-v2-orange.svg)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/daulet/Indigo.Functions)
+
 This project aims at increasing usabiltiy of [Azure Functions](https://azure.microsoft.com/en-us/blog/introducing-azure-functions/) in real life applications with usage of custom input and output [bindings](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). Azure Functions come with [built in support](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) for some triggers, inputs and outputs, mainly for Azure services like Cosmos DB, Azure Storage, Event Grid, Microsoft Graph etc. However, mature applications require more than just that: some sort of dependency injection for testability purposes; use of non-Azure services, like Redis; configurable parameters that are not hardcoded into the function. Custom input and output bindings provided by this project solve these problems in native Azure Functions way.
 
 | Binding | Purpose | Sample | Nuget |

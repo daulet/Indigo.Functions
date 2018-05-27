@@ -9,15 +9,15 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Redis bindings for Azure Functions</Title>
     <Description>Azure Functions bindings to abstract away Redis boilerpate</Description>
-    <Version>0.3-prerelease</Version>
+    <Version>0.4-prerelease</Version>
     <PackageReleaseNotes>
-Version 0.3
+      Version 0.4
 
-* Memory management improvements via sharing IConnectionMultiplexer instance;
+      * Memory management improvements via sharing IConnectionMultiplexer instance;
     </PackageReleaseNotes>
     <Authors>Daulet Zhanguzin</Authors>
     <Copyright>Copyright (c) Daulet Zhanguzin</Copyright>
-    <PackageLicenseUrl>https://opensource.org/licenses/BSD-3-Clause</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/daulet/Indigo.Functions/blob/master/LICENSE.md</PackageLicenseUrl>
     <PackageTags>azure functions azurefunc binding redis</PackageTags>
     <RepositoryUrl>https://github.com/daulet/Indigo.Functions</RepositoryUrl>
     <PackageProjectUrl>https://github.com/daulet/Indigo.Functions</PackageProjectUrl>
