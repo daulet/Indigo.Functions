@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace Indigo.Functions.Autofac.IntegrationTests
+namespace Indigo.Functions.Injection.IntegrationTests
 {
     internal class Config
     {

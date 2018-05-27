@@ -8,7 +8,7 @@ function Start-AzureFunction ([int]$port, [string]$workingDir) {
 
 Start-AzureFunction 7072 -workingDir "test\Indigo.Functions.Autofac.IntegrationTests.Target\bin\Debug\netstandard2.0"
 Start-AzureFunction 7073 -workingDir "test\Indigo.Functions.Autofac.IntegrationTests.MisconfiguredTarget\bin\Debug\netstandard2.0"
-dotnet test test\Indigo.Functions.Autofac.IntegrationTests\Indigo.Functions.Autofac.IntegrationTests.csproj
+dotnet test test\Indigo.Functions.Injection.IntegrationTests\Indigo.Functions.Injection.IntegrationTests.csproj
 
 if ($LastExitCode -ne 0) {
     return $LastExitCode
@@ -50,9 +50,9 @@ Stop-Process (Get-Process func).Id
 # Test Unity
 ################
 
-Start-AzureFunction 7073 -workingDir "test\Indigo.Functions.Unity.IntegrationTests.Target\bin\Debug\netstandard2.0"
-Start-AzureFunction 7074 -workingDir "test\Indigo.Functions.Unity.IntegrationTests.MisconfiguredTarget\bin\Debug\netstandard2.0"
-dotnet test test\Indigo.Functions.Unity.IntegrationTests\Indigo.Functions.Unity.IntegrationTests.csproj
+Start-AzureFunction 7072 -workingDir "test\Indigo.Functions.Unity.IntegrationTests.Target\bin\Debug\netstandard2.0"
+Start-AzureFunction 7073 -workingDir "test\Indigo.Functions.Unity.IntegrationTests.MisconfiguredTarget\bin\Debug\netstandard2.0"
+dotnet test test\Indigo.Functions.Injection.IntegrationTests\Indigo.Functions.Injection.IntegrationTests.csproj
 
 if ($LastExitCode -ne 0) {
     return $LastExitCode
