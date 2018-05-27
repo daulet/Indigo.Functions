@@ -7,7 +7,8 @@ namespace UnityFunctionSample
     {
         public void RegisterComponents(UnityContainer container)
         {
-            container.RegisterType<ICache, CacheProvider>();
+            container.RegisterSingleton<ICache, CacheProvider>();
+            container.RegisterType<ICacheConfigProvider, CacheConfigProvider>();
             container.RegisterType<IStorageAccess, StorageAccess>();
             container.RegisterType<ITableAccess, CloudTableAccess>();
         }

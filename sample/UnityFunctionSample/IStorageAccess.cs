@@ -29,6 +29,7 @@ namespace UnityFunctionSample
                 _logger.LogInformation($"{typeof(StorageAccess)}: cache miss for '{key}', querying table");
 
                 value = _tableAccess.QueryByKey(key);
+                _cache.StringSet(key, value);
             }
 
             return value;

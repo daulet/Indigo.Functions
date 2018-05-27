@@ -4,7 +4,7 @@
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Indigo.Functions.Autofac" Version="0.1.0-prerelease" />
+    <PackageReference Include="Indigo.Functions.Autofac" Version="0.3.0-prerelease" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.13" />
   </ItemGroup>
   <ItemGroup>
