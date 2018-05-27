@@ -3,11 +3,12 @@
 
 This project aims at increasing usabiltiy of [Azure Functions](https://azure.microsoft.com/en-us/blog/introducing-azure-functions/) in real life applications with usage of custom input and output [bindings](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). Azure Functions come with [built in support](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) for some triggers, inputs and outputs, mainly for Azure services like Cosmos DB, Azure Storage, Event Grid, Microsoft Graph etc. However, mature applications require more than just that: some sort of dependency injection for testability purposes; use of non-Azure services, like Redis; configurable parameters that are not hardcoded into the function. Custom input and output bindings provided by this project solve these problems in native Azure Functions way.
 
-Currently provided bindings:
-
-* [Dependency Injection](#dependency-injection) with [Autofac](#autofac) and [Unity](#unity) containers.
-* [Configuration](#configuration) via Application Settings.
-* [Redis](#redis) input and output with POCO support.
+| Binding | Purpose | Sample | Nuget |
+| ------- | ------- | ------ |:-----:|
+| ```[Config("key")]``` | [Configuration](#configuration) via Application Settings | [ConfigurationFunction](sample/ConfigurationFunctionSample) | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Configuration.svg)](https://www.nuget.org/packages/Indigo.Functions.Configuration) |
+| ```[Inject]``` | [Dependency Injection](#dependency-injection) with [Autofac](#autofac) | [AutofacFunction](sample/AutofacFunctionSample) | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Autofac.svg)](https://www.nuget.org/packages/Indigo.Functions.Autofac) |
+| ```[Inject]``` | [Dependency Injection](#dependency-injection) with [Unity](#unity) containers | [UnityFunction](sample/UnityFunctionSample) |  [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Unity.svg)](https://www.nuget.org/packages/Indigo.Functions.Unity) |
+| ```[Redis("key")]``` | [Redis](#redis) input and output with POCO support | [RedisFunction](sample/RedisFunctionSample) | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Redis.svg)](https://www.nuget.org/packages/Indigo.Functions.Redis) |
 
 ## Dependency Injection
 
