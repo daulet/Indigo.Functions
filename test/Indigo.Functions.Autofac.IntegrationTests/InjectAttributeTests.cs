@@ -19,6 +19,17 @@ namespace Indigo.Functions.Autofac.IntegrationTests
             Assert.True(response.IsSuccessStatusCode, "Failed to send HTTP GET");
         }
 
+        [Theory]
+        [InlineData("setting1", "value1")]
+        [InlineData("setting2", "value2")]
+        public async Task Inject_DependencyOnIConfiguration_SettingRead(string settingName, string expectedValue)
+        {
+            var response = await httpClient.GetAsync($"{config.TargetUrl}/config/{settingName}");
+            var value = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(expectedValue, value);
+        }
+
         [Fact]
         public async Task Inject_DependencyOnILogger_ILoggerInjected()
         {

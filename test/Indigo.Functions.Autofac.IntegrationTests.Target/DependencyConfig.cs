@@ -10,6 +10,7 @@ namespace Indigo.Functions.Autofac.IntegrationTests.Target
                    .As<IDependency>();
             builder.RegisterType<LoggingDependencyImpl>()
                    .As<ILoggingDependency>();
+            builder.RegisterType<ValueProvider>();
         }
     }
 }

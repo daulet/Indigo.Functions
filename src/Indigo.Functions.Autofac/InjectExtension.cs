@@ -2,6 +2,7 @@
 using Indigo.Functions.Autofac.Internal;
 using Microsoft.Azure.WebJobs.Host.Bindings;
 using Microsoft.Azure.WebJobs.Host.Config;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Linq;
 
@@ -20,7 +21,14 @@ namespace Indigo.Functions.Autofac
             {
                 var containerBuilder = new ContainerBuilder();
                 dependencyConfig.RegisterComponents(containerBuilder);
-                containerBuilder.RegisterInstance(context.Config.LoggerFactory.CreateLogger("Host.General"));
+
+                var configuration = new ConfigurationBuilder()
+                    .AddEnvironmentVariables()
+                    .Build();
+                containerBuilder.RegisterInstance(configuration).As<IConfiguration>();
+
+                var logger = context.Config.LoggerFactory.CreateLogger("Host.General");
+                containerBuilder.RegisterInstance(logger);
 
                 var container = containerBuilder.Build();
                 rule.AddOpenConverter<Anonymous, OpenType>(typeof(InjectConverter<>), context.Config, container);
