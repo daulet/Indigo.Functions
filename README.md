@@ -6,12 +6,12 @@ This project aims at increasing usabiltiy of [Azure Functions](https://azure.mic
 Currently provided bindings:
 
 * [Dependency Injection](#dependency-injection) with [Autofac](#autofac) and [Unity](#unity) containers.
-* [Configuration](#configuration) via App Settings.
+* [Configuration](#configuration) via Application Settings.
 * [Redis](#redis) input and output with POCO support.
 
 ## Dependency Injection
 
-Usage is as simple as adding [Inject] attribute to input that you'd like to inject in declaration of your function.
+Usage is as simple as adding [Inject] attribute to input that you'd like to inject in declaration of your function. You can use either [Autofac](#autofac) or [Unity](#unity) to register your components.
 
 ```cs
 [FunctionName("Example")]
@@ -23,7 +23,28 @@ public static IActionResult Run(
 }
 ```
 
-You can use either [Autofac](#autofac) or [Unity](#unity) to register your components. In addition, you can inject [Microsoft.Extensions.Logging.ILogger](https://github.com/Azure/azure-functions-host/wiki/ILogger) instance used by Azure Functions to log to file system and App Insights - no container registration necessary! Just declare it as dependency in your implementation class anywhere in your dependency tree.
+ [Microsoft.Extensions.Configuration.IConfiguration](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.iconfiguration) instance is pre-registered for your convinience that you can use to read settings from [local settings file](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#local-settings-file) or [application settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings) depending on whether you running locally or on Azure respectively.
+
+```cs
+using Microsoft.Extensions.Configuration;
+
+public class ValueProvider
+{
+    public ValueProvider(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
+
+    public string ReadSetting(string settingName)
+    {
+        return _configuration[settingName];
+    }
+
+    ...
+}
+```
+
+ In addition, [Microsoft.Extensions.Logging.ILogger](https://github.com/Azure/azure-functions-host/wiki/ILogger) instance is pre-registered fro you to log to file system and App Insights. Just declare it as dependency in your implementation class anywhere in your dependency tree.
 
 ```cs
 using Microsoft.Extensions.Logging;
