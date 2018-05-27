@@ -10,6 +10,7 @@ This project aims at increasing usabiltiy of [Azure Functions](https://azure.mic
 | ------- | ------- | ------ |:-----:|
 | ```[Config("key")]``` | [Configuration](#configuration) via Application Settings | [ConfigurationFunction](sample/ConfigurationFunctionSample) | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Configuration.svg)](https://www.nuget.org/packages/Indigo.Functions.Configuration) |
 | ```[Inject]``` | [Dependency Injection](#dependency-injection) with [Autofac](#autofac) | [AutofacFunction](sample/AutofacFunctionSample) | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Autofac.svg)](https://www.nuget.org/packages/Indigo.Functions.Autofac) |
+| ```[Inject]``` | [Dependency Injection](#dependency-injection) with [ASP.NET Core's IoC container](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection) | | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection) |
 | ```[Inject]``` | [Dependency Injection](#dependency-injection) with [Unity](#unity) containers | [UnityFunction](sample/UnityFunctionSample) |  [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Unity.svg)](https://www.nuget.org/packages/Indigo.Functions.Unity) |
 | ```[Redis("key")]``` | [Redis](#redis) input and output with POCO support | [RedisFunction](sample/RedisFunctionSample) | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Redis.svg)](https://www.nuget.org/packages/Indigo.Functions.Redis) |
 

@@ -26,7 +26,6 @@
     <PackageProjectUrl>https://github.com/daulet/Indigo.Functions</PackageProjectUrl>
   </PropertyGroup>
 
-
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.0.0" />
     <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.0-beta5" />

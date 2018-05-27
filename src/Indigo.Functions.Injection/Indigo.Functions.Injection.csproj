@@ -4,9 +4,33 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>Dependency injection bindings for Azure Functions</Title>
+    <Description>Azure Functions bindings to inject your dependencies with ASP.NET Core's IoC container</Description>
+    <Version>0.4-prerelease</Version>
+    <PackageReleaseNotes>
+      Version 0.4
+
+      * Use [Inject] binding for all injectable dependencies.
+      * Implement IDependencyConfiguration to configure your services.
+      * Auto inject (no registration required) Microsoft.Extensions.Configuration.IConfiguration to read App Settings.
+      * Auto inject (no registration required) Microsoft.Extensions.Logging.ILogger to log to both file system and Application Insights.
+    </PackageReleaseNotes>
+    <Authors>Daulet Zhanguzin</Authors>
+    <Copyright>Copyright (c) Daulet Zhanguzin</Copyright>
+    <PackageLicenseUrl>https://github.com/daulet/Indigo.Functions/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageTags>azure functions azurefunc binding di dependency injection asp.net ioc container</PackageTags>
+    <RepositoryUrl>https://github.com/daulet/Indigo.Functions</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/daulet/Indigo.Functions</PackageProjectUrl>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.0-beta5" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.0">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
