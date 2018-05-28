@@ -1,4 +1,5 @@
 ﻿using Indigo.Functions.Unity;
+using Sample.Storage;
 using Unity;
 
 namespace UnityFunctionSample

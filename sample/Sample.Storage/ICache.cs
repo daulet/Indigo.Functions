@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 
-namespace UnityFunctionSample
+namespace Sample.Storage
 {
     public interface ICache
     {

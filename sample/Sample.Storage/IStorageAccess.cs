@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace AutofacFunctionSample
+namespace Sample.Storage
 {
     public interface IStorageAccess
     {

@@ -10,13 +10,13 @@ This project aims at increasing usabiltiy of [Azure Functions](https://azure.mic
 | ------- | ------- | ------ |:-----:|
 | ```[Config("key")]``` | [Configuration](#configuration) via Application Settings | [ConfigurationFunction](sample/ConfigurationFunctionSample) | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Configuration.svg)](https://www.nuget.org/packages/Indigo.Functions.Configuration) |
 | ```[Inject]``` | [Dependency Injection](#dependency-injection) with [Autofac](#autofac) | [AutofacFunction](sample/AutofacFunctionSample) | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Autofac.svg)](https://www.nuget.org/packages/Indigo.Functions.Autofac) |
-| ```[Inject]``` | [Dependency Injection](#dependency-injection) with [ASP.NET Core's IoC container](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection) | | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection) |
+| ```[Inject]``` | [Dependency Injection](#dependency-injection) with [built-in .NET Core container](#servicecollection) | [InjectionFunction](sample/InjectionFunctionSample) | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection) |
 | ```[Inject]``` | [Dependency Injection](#dependency-injection) with [Unity](#unity) containers | [UnityFunction](sample/UnityFunctionSample) |  [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Unity.svg)](https://www.nuget.org/packages/Indigo.Functions.Unity) |
 | ```[Redis("key")]``` | [Redis](#redis) input and output with POCO support | [RedisFunction](sample/RedisFunctionSample) | [![Nuget version](https://img.shields.io/nuget/dt/Indigo.Functions.Redis.svg)](https://www.nuget.org/packages/Indigo.Functions.Redis) |
 
 ## Dependency Injection
 
-Usage is as simple as adding [Inject] attribute to input that you'd like to inject in declaration of your function. You can use either [Autofac](#autofac) or [Unity](#unity) to register your components.
+Use [Inject] attribute to inject all your dependencies in Azure Function declaration.
 
 ```cs
 [FunctionName("Example")]
@@ -28,20 +28,24 @@ public static IActionResult Run(
 }
 ```
 
- [Microsoft.Extensions.Configuration.IConfiguration](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.iconfiguration) instance is pre-registered for your convinience that you can use to read settings from [local settings file](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#local-settings-file) or [application settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings) depending on whether you running locally or on Azure respectively.
+ [Microsoft.Extensions.Configuration.IConfiguration](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.iconfiguration) instance is pre-registered for your convinience that you can use to read settings from [local settings file](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#local-settings-file) or [application settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings) depending on whether you running locally or on Azure respectively. In addition, [Microsoft.Extensions.Logging.ILogger](https://github.com/Azure/azure-functions-host/wiki/ILogger) instance is also pre-registered for you to log to file system and App Insights. Just declare it as dependency in your implementation class anywhere in your dependency tree.
 
 ```cs
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging; 
 
 public class ValueProvider
 {
-    public ValueProvider(IConfiguration configuration)
+    public ValueProvider(IConfiguration configuration, ILogger logger)
     {
         _configuration = configuration;
+        _logger = logger;
     }
 
     public string ReadSetting(string settingName)
     {
+        _logger.LogInformation($"Reading value of '{settingName}'");
+
         return _configuration[settingName];
     }
 
@@ -49,22 +53,11 @@ public class ValueProvider
 }
 ```
 
- In addition, [Microsoft.Extensions.Logging.ILogger](https://github.com/Azure/azure-functions-host/wiki/ILogger) instance is pre-registered fro you to log to file system and App Insights. Just declare it as dependency in your implementation class anywhere in your dependency tree.
+Supported IoC containers:
 
-```cs
-using Microsoft.Extensions.Logging;
-
-public class StorageAccess : IStorageAccess
-{
-    public StorageAccess(ILogger logger, ITableAccess tableAccess)
-    {
-        _logger = logger;
-        _tableAccess = tableAccess;
-    }
-
-    ...
-}
-```
+* [Autofac](#autofac)
+* [.NET Core's ServiceCollection](#servicecollection)
+* [Unity container](#unity)
 
 ### Autofac
 
@@ -86,6 +79,25 @@ public class DependencyConfig : IDependencyConfig
 ```
 
 For further details see [working sample](sample/AutofacFunctionSample) or [function declarations in tests](test/Indigo.Functions.Autofac.IntegrationTests.Target).
+
+### ServiceCollection
+
+[![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection)
+[![Nuget downloads](https://img.shields.io/nuget/dt/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection)
+
+Create implementation of *IDependencyConfiguration* interface (public visibility) in your function's binary:
+
+```cs
+public class DependencyConfiguration : IDependencyConfiguration
+{
+    public void RegisterServices(ServiceCollection collection)
+    {
+        collection.AddTransient<IStorageAccess, StorageAccess>();
+    }
+}
+```
+
+For further details see [working sample](sample/InjectionFunctionSample) or [function declarations in tests](test/Indigo.Functions.Injection.IntegrationTests.Target). For details on how to use ASP.NET Core's ServiceCollection see [official guide](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection).
 
 ### Unity
 

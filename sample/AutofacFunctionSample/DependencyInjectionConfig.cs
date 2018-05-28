@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Indigo.Functions.Autofac;
+using Sample.Storage;
 
 namespace AutofacFunctionSample
 {
