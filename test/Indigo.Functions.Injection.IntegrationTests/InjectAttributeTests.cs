@@ -38,14 +38,5 @@ namespace Indigo.Functions.Injection.IntegrationTests
 
             Assert.True(response.IsSuccessStatusCode, "Failed to send HTTP GET");
         }
-
-        [Fact]
-        public async Task Inject_NonPublicConfig_FunctionFailsToResolveDependency()
-        {
-            var response =
-                await httpClient.GetAsync($"{config.MisconfiguredTargetUrl}/NonPublicConfigFunction");
-
-            Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
-        }
     }
 }

@@ -6,12 +6,10 @@ namespace Indigo.Functions.Injection
 {
     public class InjectConverter<T> : IConverter<Anonymous, T>
     {
-        private readonly JobHostConfiguration _configuration;
         private readonly ServiceProvider _provider;
 
-        public InjectConverter(JobHostConfiguration configuration, ServiceProvider provider)
+        public InjectConverter(ServiceProvider provider)
         {
-            _configuration = configuration;
             _provider = provider;
         }
 

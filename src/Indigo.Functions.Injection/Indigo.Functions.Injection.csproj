@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -8,12 +8,13 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Dependency injection bindings for Azure Functions</Title>
     <Description>Azure Functions bindings to inject your dependencies with ASP.NET Core's IoC container</Description>
-    <Version>0.4-prerelease</Version>
+    <Version>1.0</Version>
     <PackageReleaseNotes>
-      Version 0.4
+      Version 1.0
 
       * Use [Inject] binding for all injectable dependencies.
       * Implement IDependencyConfiguration to configure your services.
+      * Register IDependencyConfiguration implementation in Startup.
       * Auto inject (no registration required) Microsoft.Extensions.Configuration.IConfiguration to read App Settings.
       * Auto inject (no registration required) Microsoft.Extensions.Logging.ILogger to log to both file system and Application Insights.
     </PackageReleaseNotes>
@@ -26,9 +27,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.0-beta5" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.0">
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.2">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
   </ItemGroup>

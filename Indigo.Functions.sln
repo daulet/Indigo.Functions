@@ -47,8 +47,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection.IntegrationTests.Target", "test\Indigo.Functions.Injection.IntegrationTests.Target\Indigo.Functions.Injection.IntegrationTests.Target.csproj", "{D50C415E-C41B-45A3-A10E-425003820D8C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indigo.Functions.Injection.IntegrationTests.MisconfiguredTarget", "test\Indigo.Functions.Injection.IntegrationTests.MisconfiguredTarget\Indigo.Functions.Injection.IntegrationTests.MisconfiguredTarget.csproj", "{2E255DFA-E36B-403A-B532-A8803F8B197E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InjectionFunctionSample", "sample\InjectionFunctionSample\InjectionFunctionSample.csproj", "{A0B87862-393F-4E4C-B272-A3B6B16A8A65}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Storage", "sample\Sample.Storage\Sample.Storage.csproj", "{5D213D80-99E6-4F97-941F-00FF32A7A6F4}"
@@ -143,10 +141,6 @@ Global
 		{D50C415E-C41B-45A3-A10E-425003820D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D50C415E-C41B-45A3-A10E-425003820D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D50C415E-C41B-45A3-A10E-425003820D8C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E255DFA-E36B-403A-B532-A8803F8B197E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E255DFA-E36B-403A-B532-A8803F8B197E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E255DFA-E36B-403A-B532-A8803F8B197E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E255DFA-E36B-403A-B532-A8803F8B197E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A0B87862-393F-4E4C-B272-A3B6B16A8A65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A0B87862-393F-4E4C-B272-A3B6B16A8A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0B87862-393F-4E4C-B272-A3B6B16A8A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
