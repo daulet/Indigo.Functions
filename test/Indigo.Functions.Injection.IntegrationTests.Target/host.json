@@ -1,6 +1,8 @@
 {
-  "http": {
-    "routePrefix": "test"
+  "extensions": {
+    "http": {
+      "routePrefix": "test"
+    }
   },
   "version": "2.0"
 }
