@@ -3,6 +3,8 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
-    "cache_size": "10"
-  }
+    "cache_size": "10",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+  },
+  "ConnectionStrings": {}
 }

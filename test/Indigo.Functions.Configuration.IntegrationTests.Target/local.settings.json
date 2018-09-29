@@ -20,6 +20,8 @@
     "short": "32767",
     "ushort": "65535",
     "string": "abc",
-    "timespan": "6:12:14:45"
-  }
+    "timespan": "6:12:14:45",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+  },
+  "ConnectionStrings": {}
 }
