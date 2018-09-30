@@ -8,13 +8,12 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Dependency injection bindings for Azure Functions</Title>
     <Description>Azure Functions bindings to inject your dependencies with ASP.NET Core's IoC container</Description>
-    <Version>1.0</Version>
+    <Version>1.0.1</Version>
     <PackageReleaseNotes>
-      Version 1.0
+      Version 1.0.1
 
       * Use [Inject] binding for all injectable dependencies.
-      * Implement IDependencyConfiguration to configure your services.
-      * Register IDependencyConfiguration implementation in Startup.
+      * Register your dependencies with IWebJobsBuilder.Services in body of IWebJobsStartup.Configure() (aka Startup).
       * Auto inject (no registration required) Microsoft.Extensions.Configuration.IConfiguration to read App Settings.
       * Auto inject (no registration required) Microsoft.Extensions.Logging.ILogger to log to both file system and Application Insights.
     </PackageReleaseNotes>

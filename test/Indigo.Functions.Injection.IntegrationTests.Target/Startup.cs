@@ -9,8 +9,9 @@ namespace Indigo.Functions.Injection.IntegrationTests.Target
     {
         public void Configure(IWebJobsBuilder builder)
         {
-            builder.Services.AddSingleton<IDependencyConfiguration, DependencyConfig>();
-            builder.AddExtension<InjectExtension>();
+            builder.Services.AddTransient<IDependency, DependencyImpl>();
+            builder.Services.AddTransient<ILoggingDependency, LoggingDependencyImpl>();
+            builder.Services.AddTransient<ValueProvider>();
         }
     }
 }

@@ -85,14 +85,21 @@ For further details see [working sample](sample/AutofacFunctionSample) or [funct
 [![Nuget version](https://img.shields.io/nuget/v/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection)
 [![Nuget downloads](https://img.shields.io/nuget/dt/Indigo.Functions.Injection.svg)](https://www.nuget.org/packages/Indigo.Functions.Injection)
 
-Create implementation of *IDependencyConfiguration* interface (public visibility) in your function's binary:
+Register all your dependencies in Startup class:
 
 ```cs
-public class DependencyConfiguration : IDependencyConfiguration
+[assembly: WebJobsStartup(typeof(InjectionFunctionSample.Startup))]
+namespace InjectionFunctionSample
 {
-    public void RegisterServices(ServiceCollection collection)
+    public class Startup : IWebJobsStartup
     {
-        collection.AddTransient<IStorageAccess, StorageAccess>();
+        public void Configure(IWebJobsBuilder builder)
+        {
+            builder.Services.AddSingleton<ICache, CacheProvider>();
+            builder.Services.AddTransient<ICacheConfigProvider, CacheConfigProvider>();
+            builder.Services.AddTransient<IStorageAccess, StorageAccess>();
+            builder.Services.AddTransient<ITableAccess, CloudTableAccess>();
+        }
     }
 }
 ```
